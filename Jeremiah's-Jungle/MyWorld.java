@@ -14,7 +14,7 @@ public class MyWorld extends World
      */
     public MyWorld()
     {
-        super(1705, 920, 1);
+        super(1500, 800, 1);
         prepare();
     }
 
@@ -24,9 +24,25 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Jeremiah jeremiah =  new Jeremiah();
-        addObject(jeremiah, 197, 795);
-        jeremiah.setLocation(74, 846);
-        jeremiah.setLocation(63, 853);
+        Ground ground =  new  Ground();
+        addObject(ground, 867, 794);
+        Block block =  new  Block();
+        addObject(block, 1463, 702);
+        Block block2 =  new  Block();
+        addObject(block2, 1390, 703);
+        Block block3 =  new  Block();
+        addObject(block3, 1462, 629);
+        LongBlock longBlock =  new  LongBlock();
+        addObject(longBlock, 485, 541);
+        Jeremiah jeremiah =  new  Jeremiah();
+        addObject(jeremiah, 40, 716);
+        Block block4 =  new  Block();
+        addObject(block4, 37, 462);
+        Block block5 =  new  Block();
+        addObject(block5, 111, 462);
+        Block block6 =  new  Block();
+        addObject(block6, 38, 387);
+        LongBlock longBlock2 =  new  LongBlock();
+        addObject(longBlock2, 1014, 288);
     }
 }

@@ -34,7 +34,6 @@ public class Jeremiah extends Actor
         }
         if (Greenfoot.isKeyDown("a")) {
             move(-3);
-            
         }
     }
 
@@ -44,7 +43,7 @@ public class Jeremiah extends Actor
     public void jump()
     {
         if (Greenfoot.isKeyDown("space") && onGround) {
-            verticalSpeed =  - jumpHeight;
+            verticalSpeed = 6;
             onGround = false;
         }
         if ( ! onGround) {

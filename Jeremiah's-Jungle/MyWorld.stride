@@ -12,7 +12,7 @@
             <javadoc xml:space="preserve">Constructor for objects of class MyWorld.</javadoc>
             <params/>
             <throws/>
-            <delegate target="super" params="1705,920,1" params-java="1705, 920, 1"/>
+            <delegate target="super" params="1500,800,1" params-java="1500, 800, 1"/>
             <body>
                 <call expression="prepare()" expression-java="prepare()" enable="true"/>
             </body>
@@ -25,10 +25,26 @@ That is: create the initial objects and add them to the world.</javadoc>
             <params/>
             <throws/>
             <body>
+                <variable type="Ground" type-java="Ground" name="ground" value="new Ground()" value-java=" new Ground()" enable="true"/>
+                <call expression="addObject(ground,867,794)" expression-java="addObject(ground, 867, 794)" enable="true"/>
+                <variable type="Block" type-java="Block" name="block" value="new Block()" value-java=" new Block()" enable="true"/>
+                <call expression="addObject(block,1463,702)" expression-java="addObject(block, 1463, 702)" enable="true"/>
+                <variable type="Block" type-java="Block" name="block2" value="new Block()" value-java=" new Block()" enable="true"/>
+                <call expression="addObject(block2,1390,703)" expression-java="addObject(block2, 1390, 703)" enable="true"/>
+                <variable type="Block" type-java="Block" name="block3" value="new Block()" value-java=" new Block()" enable="true"/>
+                <call expression="addObject(block3,1462,629)" expression-java="addObject(block3, 1462, 629)" enable="true"/>
+                <variable type="LongBlock" type-java="LongBlock" name="longBlock" value="new LongBlock()" value-java=" new LongBlock()" enable="true"/>
+                <call expression="addObject(longBlock,485,541)" expression-java="addObject(longBlock, 485, 541)" enable="true"/>
                 <variable type="Jeremiah" type-java="Jeremiah" name="jeremiah" value="new Jeremiah()" value-java=" new Jeremiah()" enable="true"/>
-                <call expression="addObject(jeremiah,197,795)" expression-java="addObject(jeremiah, 197, 795)" enable="true"/>
-                <call expression="jeremiah.setLocation(74,846)" expression-java="jeremiah.setLocation(74, 846)" enable="true"/>
-                <call expression="jeremiah.setLocation(63,853)" expression-java="jeremiah.setLocation(63, 853)" enable="true"/>
+                <call expression="addObject(jeremiah,40,716)" expression-java="addObject(jeremiah, 40, 716)" enable="true"/>
+                <variable type="Block" type-java="Block" name="block4" value="new Block()" value-java=" new Block()" enable="true"/>
+                <call expression="addObject(block4,37,462)" expression-java="addObject(block4, 37, 462)" enable="true"/>
+                <variable type="Block" type-java="Block" name="block5" value="new Block()" value-java=" new Block()" enable="true"/>
+                <call expression="addObject(block5,111,462)" expression-java="addObject(block5, 111, 462)" enable="true"/>
+                <variable type="Block" type-java="Block" name="block6" value="new Block()" value-java=" new Block()" enable="true"/>
+                <call expression="addObject(block6,38,387)" expression-java="addObject(block6, 38, 387)" enable="true"/>
+                <variable type="LongBlock" type-java="LongBlock" name="longBlock2" value="new LongBlock()" value-java=" new LongBlock()" enable="true"/>
+                <call expression="addObject(longBlock2,1014,288)" expression-java="addObject(longBlock2, 1014, 288)" enable="true"/>
             </body>
         </method>
     </methods>

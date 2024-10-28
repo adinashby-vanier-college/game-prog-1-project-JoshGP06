@@ -38,7 +38,6 @@
                 <if condition="Greenfoot.isKeyDown(&quot;a&quot;)" condition-java="Greenfoot.isKeyDown(&quot;a&quot;)" enable="true">
                     <ifStatements>
                         <call expression="move(-3)" expression-java="move(-3)" enable="true"/>
-                        <blank/>
                     </ifStatements>
                 </if>
             </body>
@@ -50,7 +49,7 @@
             <body>
                 <if condition="Greenfoot.isKeyDown(&quot;space&quot;)&amp;&amp;onGround" condition-java="Greenfoot.isKeyDown(&quot;space&quot;) &amp;&amp; onGround" enable="true">
                     <ifStatements>
-                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="-jumpHeight" src-java=" - jumpHeight" enable="true"/>
+                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="6" src-java="6" enable="true"/>
                         <assign dest="onGround" dest-java="onGround" src="false" src-java="false" enable="true"/>
                     </ifStatements>
                 </if>
