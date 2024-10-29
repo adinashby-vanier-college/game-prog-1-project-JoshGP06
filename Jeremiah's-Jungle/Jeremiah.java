@@ -8,54 +8,71 @@ import greenfoot.*;
  */
 public class Jeremiah extends Actor
 {
-    private int jumpHeight = 10;
-    private int gravity = 1;
-    private int verticalSpeed = 0;
-    private boolean onGround = true;
-    
+    public int jumpHeight = 14;
+    public int gravity = 1;
+    public int verticalSpeed = 10;
+    public boolean isJumping = false;
 
     /**
      * Act - do whatever the Jeremiah wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        movement();
-        jump();
-        moveVertically();
+        move();
+        applyGravity();
+        checkForJump();
     }
 
     /**
      * 
      */
-    public void movement()
+    public void move()
     {
         if (Greenfoot.isKeyDown("d")) {
             move(4);
         }
         if (Greenfoot.isKeyDown("a")) {
-            move(-3);
+            move(-4);
         }
     }
 
     /**
      * 
      */
-    public void jump()
+    public void checkForJump()
     {
-        if (Greenfoot.isKeyDown("space") && onGround) {
-            verticalSpeed = 6;
-            onGround = false;
-        }
-        if ( ! onGround) {
-            verticalSpeed = gravity;
+        if (Greenfoot.isKeyDown("space") &&  ! isJumping) {
+            verticalSpeed =  - jumpHeight;
+            isJumping = true;
         }
     }
 
     /**
      * 
      */
-    private void moveVertically()
+    public void applyGravity()
     {
+        verticalSpeed = gravity + verticalSpeed;
         setLocation(getX(), getY() + verticalSpeed);
+        if (isTouching(Ground.class)) {
+            setLocation(getX(), getY() - verticalSpeed);
+            isJumping = false;
+            verticalSpeed = 0;
+        }
+        if (isTouching(Block.class)) {
+            setLocation(getX(), getY() - verticalSpeed);
+            isJumping = false;
+            verticalSpeed = 0;
+        }
+        if (isTouching(LongBlock.class)) {
+            setLocation(getX(), getY() - verticalSpeed);
+            isJumping = false;
+            verticalSpeed = 0;
+        }
+        if (getY() >= getWorld().getHeight() - 1) {
+            setLocation(getX(), getWorld().getHeight() - 1);
+            isJumping = false;
+            verticalSpeed = 0;
+        }
     }
 }

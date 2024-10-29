@@ -7,11 +7,10 @@
     </imports>
     <implements/>
     <fields>
-        <variable access="private" type="int" type-java="int" name="jumpHeight" value="10" value-java="10" enable="true"/>
-        <variable access="private" type="int" type-java="int" name="gravity" value="1" value-java="1" enable="true"/>
-        <variable access="private" type="int" type-java="int" name="verticalSpeed" value="0" value-java="0" enable="true"/>
-        <variable access="private" type="boolean" type-java="boolean" name="onGround" value="true" value-java="true" enable="true"/>
-        <blank/>
+        <variable access="public" type="int" type-java="int" name="jumpHeight" value="14" value-java="14" enable="true"/>
+        <variable access="public" type="int" type-java="int" name="gravity" value="1" value-java="1" enable="true"/>
+        <variable access="public" type="int" type-java="int" name="verticalSpeed" value="10" value-java="10" enable="true"/>
+        <variable access="public" type="boolean" type-java="boolean" name="isJumping" value="false" value-java="false" enable="true"/>
     </fields>
     <constructors/>
     <methods>
@@ -20,12 +19,12 @@
             <params/>
             <throws/>
             <body>
-                <call expression="movement()" expression-java="movement()" enable="true"/>
-                <call expression="jump()" expression-java="jump()" enable="true"/>
-                <call expression="moveVertically()" expression-java="moveVertically()" enable="true"/>
+                <call expression="move()" expression-java="move()" enable="true"/>
+                <call expression="applyGravity()" expression-java="applyGravity()" enable="true"/>
+                <call expression="checkForJump()" expression-java="checkForJump()" enable="true"/>
             </body>
         </method>
-        <method access="public" type="void" type-java="void" name="movement" enable="true">
+        <method access="public" type="void" type-java="void" name="move" enable="true">
             <javadoc xml:space="preserve"/>
             <params/>
             <throws/>
@@ -37,50 +36,58 @@
                 </if>
                 <if condition="Greenfoot.isKeyDown(&quot;a&quot;)" condition-java="Greenfoot.isKeyDown(&quot;a&quot;)" enable="true">
                     <ifStatements>
-                        <call expression="move(-3)" expression-java="move(-3)" enable="true"/>
+                        <call expression="move(-4)" expression-java="move(-4)" enable="true"/>
                     </ifStatements>
                 </if>
             </body>
         </method>
-        <method access="public" type="void" type-java="void" name="jump" enable="true">
+        <method access="public" type="void" type-java="void" name="checkForJump" enable="true">
             <javadoc xml:space="preserve"/>
             <params/>
             <throws/>
             <body>
-                <if condition="Greenfoot.isKeyDown(&quot;space&quot;)&amp;&amp;onGround" condition-java="Greenfoot.isKeyDown(&quot;space&quot;) &amp;&amp; onGround" enable="true">
+                <if condition="Greenfoot.isKeyDown(&quot;space&quot;)&amp;&amp;!isJumping" condition-java="Greenfoot.isKeyDown(&quot;space&quot;) &amp;&amp; ! isJumping" enable="true">
                     <ifStatements>
-                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="6" src-java="6" enable="true"/>
-                        <assign dest="onGround" dest-java="onGround" src="false" src-java="false" enable="true"/>
-                    </ifStatements>
-                </if>
-                <if condition="!onGround" condition-java=" ! onGround" enable="true">
-                    <ifStatements>
-                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="gravity" src-java="gravity" enable="true"/>
+                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="-jumpHeight" src-java=" - jumpHeight" enable="true"/>
+                        <assign dest="isJumping" dest-java="isJumping" src="true" src-java="true" enable="true"/>
                     </ifStatements>
                 </if>
             </body>
         </method>
-        <method access="private" type="void" type-java="void" name="moveVertically" enable="true">
+        <method access="public" type="void" type-java="void" name="applyGravity" enable="true">
             <javadoc xml:space="preserve"/>
             <params/>
             <throws/>
             <body>
+                <assign dest="verticalSpeed" dest-java="verticalSpeed" src="gravity+verticalSpeed" src-java="gravity + verticalSpeed" enable="true"/>
                 <call expression="setLocation(getX(),getY()+verticalSpeed)" expression-java="setLocation(getX(), getY() + verticalSpeed)" enable="true"/>
-            </body>
-        </method>
-        <method access="private" type="void" type-java="void" name="checkGroundCollision" enable="false">
-            <javadoc xml:space="preserve"/>
-            <params/>
-            <throws/>
-            <body>
-                <if condition="isTouching(Ground.class)" condition-java="isTouching(Ground.class)" enable="false">
+                <if condition="isTouching(Ground.class)" condition-java="isTouching(Ground.class)" enable="true">
                     <ifStatements>
-                        <assign dest="onGround" dest-java="onGround" src="true" src-java="true" enable="false"/>
-                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="0" src-java="0" enable="false"/>
+                        <call expression="setLocation(getX(),getY()-verticalSpeed)" expression-java="setLocation(getX(), getY() - verticalSpeed)" enable="true"/>
+                        <assign dest="isJumping" dest-java="isJumping" src="false" src-java="false" enable="true"/>
+                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="0" src-java="0" enable="true"/>
                     </ifStatements>
-                    <else>
-                        <assign dest="onGround" dest-java="onGround" src="false" src-java="false" enable="false"/>
-                    </else>
+                </if>
+                <if condition="isTouching(Block.class)" condition-java="isTouching(Block.class)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getY()-verticalSpeed)" expression-java="setLocation(getX(), getY() - verticalSpeed)" enable="true"/>
+                        <assign dest="isJumping" dest-java="isJumping" src="false" src-java="false" enable="true"/>
+                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="0" src-java="0" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="isTouching(LongBlock.class)" condition-java="isTouching(LongBlock.class)" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getY()-verticalSpeed)" expression-java="setLocation(getX(), getY() - verticalSpeed)" enable="true"/>
+                        <assign dest="isJumping" dest-java="isJumping" src="false" src-java="false" enable="true"/>
+                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="0" src-java="0" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="getY()&gt;=getWorld().getHeight()-1" condition-java="getY() &gt;= getWorld().getHeight() - 1" enable="true">
+                    <ifStatements>
+                        <call expression="setLocation(getX(),getWorld().getHeight()-1)" expression-java="setLocation(getX(), getWorld().getHeight() - 1)" enable="true"/>
+                        <assign dest="isJumping" dest-java="isJumping" src="false" src-java="false" enable="true"/>
+                        <assign dest="verticalSpeed" dest-java="verticalSpeed" src="0" src-java="0" enable="true"/>
+                    </ifStatements>
                 </if>
             </body>
         </method>
