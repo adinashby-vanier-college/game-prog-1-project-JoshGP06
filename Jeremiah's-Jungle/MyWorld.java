@@ -34,8 +34,8 @@ public class MyWorld extends World
         addObject(block3, 1462, 629);
         LongBlock longBlock =  new  LongBlock();
         addObject(longBlock, 485, 541);
-        Jeremiah jeremiah =  new  Jeremiah();
-        addObject(jeremiah, 40, 716);
+        Player jeremiah =  new  Player();
+        addObject(jeremiah, 281, 411);
         Block block4 =  new  Block();
         addObject(block4, 37, 462);
         Block block5 =  new  Block();

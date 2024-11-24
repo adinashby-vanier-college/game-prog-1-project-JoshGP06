@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Player
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ moveLeftRight()
+comment3.params=
+comment3.target=void\ moveLeft()
+comment4.params=
+comment4.target=void\ moveRight()
+comment5.params=
+comment5.target=void\ applyGravity()
+comment6.params=
+comment6.target=void\ jump()
+comment7.params=newX\ newY
+comment7.target=boolean\ isBlockBlocked(int,\ int)
+comment8.params=
+comment8.target=void\ checkCollisions()
+numComments=9
