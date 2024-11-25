@@ -3,11 +3,11 @@ import greenfoot.*;
 public class Player extends Actor
 {
     private int speed = 5;         // Horizontal movement speed
-    private int jumpSpeed = 40;   // Jumping speed (negative to move upwards)
+    private int jumpSpeed = -15;   // Jumping speed (negative to move upwards)
     private int gravity = 1;       // Gravity to pull the player down
     private int verticalSpeed = -10; // Vertical speed for jumping and gravity
-    private boolean onGround = true; // Check if the player is on the ground
-
+    private boolean onGround = false; // Check if the player is on the ground
+    
     public void act()
     {
         moveLeftRight();      // Handle horizontal movement
@@ -62,27 +62,46 @@ public class Player extends Actor
     // Handle jumping: if on the ground, apply an upward speed
     private void jump()
     {
-        if (Greenfoot.isKeyDown("w") && onGround == true)  // Only jump if on the ground
+        if (Greenfoot.isKeyDown("space") && onGround == true)  // Only jump if on the ground
         {
-            setLocation(getX(), getY() -5);
-            verticalSpeed = -15;  // Apply jump speed (move upwards)
+            verticalSpeed = jumpSpeed;  // Apply jump speed (move upwards)
             onGround = false;  // Player is in the air after jumping
         }
     }
 
-    // Check if the player is colliding with any BarrierBlock at a specific position
+    // Check if the player is colliding with any Block at a specific position
     private boolean isLBlockBlocked(int newX, int newY)
     {
-        Actor lBlock = getOneObjectAtOffset(newX - getX() -25, newY - getY(), LBlock.class);
+        Actor lBlock = getOneObjectAtOffset(newX - getX() - 75/2, newY - getY(), LBlock.class);
         return lBlock != null;  // If there is a block, return true
     }
-
+    private boolean isLLongBlockBlocked(int newX, int newY)
+    {
+        Actor lLongBlock = getOneObjectAtOffset(newX - getX() - 75/2, newY - getY(), LLongBlock.class);
+        return lLongBlock != null;  // If there is a block, return true
+    }
+        
     // Check if the player is colliding with the ground or ceiling
     private void checkCollisions()
     {
-        // Check for collision with the ground (or a block below the player)
-        if (isLBlockBlocked(getX(), getY() + 75/2))  // Check if there's a block directly below
+        boolean wasOnGround = onGround;  // Save the previous onGround state
+    
+        // Check if the player is colliding with an LBlock below (for landing)
+        if (isLBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LBlock directly below
         {
+            // Adjust player's vertical position so they land on top of the block
+            while (isLBlockBlocked(getX(), getY() + 75 / 2)) {
+                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+            }
+            onGround = true;  // The player is on the ground
+            verticalSpeed = 0;  // Stop downward movement (gravity)
+        }
+        else if (isLLongBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LLongBlock directly below
+        {
+            // Adjust player's vertical position so they land on top of the block
+            while (isLLongBlockBlocked(getX(), getY() + 75 / 2)) {
+                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+            }
             onGround = true;  // The player is on the ground
             verticalSpeed = 0;  // Stop downward movement (gravity)
         }
@@ -90,11 +109,20 @@ public class Player extends Actor
         {
             onGround = false;  // Player is in the air
         }
-
+    
         // Check if the player is colliding with a ceiling (if jumping)
-        if (isLBlockBlocked(getX(), getY() - 25))  // Check if there's a block directly above
+        if (isLBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LBlock directly above
         {
             verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+        }
+        if (isLLongBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LLongBlock directly above
+        {
+            verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+        }
+    
+        // If the player was on the ground and just left the ground, reset the vertical speed
+        if (wasOnGround && !onGround) {
+            verticalSpeed = 0;  // Reset vertical speed when leaving the ground
         }
     }
 }

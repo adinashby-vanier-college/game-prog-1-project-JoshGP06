@@ -6,7 +6,7 @@ import greenfoot.*;
 /**
  * 
  */
-public class LongBlock extends Actor
+public class LLongBlock extends Actor
 {
 
     /**
