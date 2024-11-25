@@ -37,13 +37,17 @@ public class Player extends Actor
         {
             setLocation(newX, getY());  // Move left if no collision
         }
+        if (!isLLongBlockBlocked(newX, getY()))  // Check if the new position is blocked
+        {
+            setLocation(newX, getY());  // Move left if no collision
+        }
     }
 
     // Check if the player can move right without colliding with a block
     private void moveRight()
     {
         int newX = getX() + speed;
-        if (!isLBlockBlocked(newX, getY()))  // Check if the new position is blocked
+        if (!isRBlockBlocked(newX, getY()))  // Check if the new position is blocked
         {
             setLocation(newX, getY());  // Move right if no collision
         }
@@ -75,10 +79,20 @@ public class Player extends Actor
         Actor lBlock = getOneObjectAtOffset(newX - getX() - 75/2, newY - getY(), LBlock.class);
         return lBlock != null;  // If there is a block, return true
     }
+    private boolean isRBlockBlocked(int newX, int newY)
+    {
+        Actor rBlock = getOneObjectAtOffset(newX - getX() + 75/2, newY - getY(), RBlock.class);
+        return rBlock != null;  // If there is a block, return true
+    }
     private boolean isLLongBlockBlocked(int newX, int newY)
     {
         Actor lLongBlock = getOneObjectAtOffset(newX - getX() - 75/2, newY - getY(), LLongBlock.class);
         return lLongBlock != null;  // If there is a block, return true
+    }
+    private boolean isGroundBlocked(int newX, int newY)
+    {
+        Actor ground = getOneObjectAtOffset(newX - getX(), newY - getY()-15, Ground.class);
+        return ground != null;  // If there is a block, return true
     }
         
     // Check if the player is colliding with the ground or ceiling
@@ -109,13 +123,43 @@ public class Player extends Actor
         {
             onGround = false;  // Player is in the air
         }
+        
+        if (isGroundBlocked(getX(), getY() + 75 / 2))  // Check if there's an LLongBlock directly below
+        {
+            // Adjust player's vertical position so they land on top of the block
+            while (isGroundBlocked(getX(), getY() + 75 / 2)) {
+                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+            }
+            onGround = true;  // The player is on the ground
+            verticalSpeed = 0;  // Stop downward movement (gravity)
+        }
+        
+        if (isRBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LBlock directly below
+        {
+            // Adjust player's vertical position so they land on top of the block
+            while (isRBlockBlocked(getX(), getY() + 75 / 2)) {
+                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+            }
+            onGround = true;  // The player is on the ground
+            verticalSpeed = 0;  // Stop downward movement (gravity)
+        }
     
         // Check if the player is colliding with a ceiling (if jumping)
         if (isLBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LBlock directly above
         {
             verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
         }
-        if (isLLongBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LLongBlock directly above
+        else if (isLLongBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LLongBlock directly above
+        {
+            verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+        }
+        
+        if (isGroundBlocked(getX(), getY() - 75 / 2))  // Check if there's an LBlock directly above
+        {
+            verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+        }
+        
+        if (isRBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LBlock directly above
         {
             verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
         }
