@@ -6,7 +6,7 @@ import greenfoot.*;
 /**
  * 
  */
-public class Block extends Actor
+public class LBlock extends Actor
 {
 
     /**

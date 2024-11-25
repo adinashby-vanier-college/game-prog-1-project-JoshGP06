@@ -27,24 +27,25 @@ That is: create the initial objects and add them to the world.</javadoc>
             <body>
                 <variable type="Ground" type-java="Ground" name="ground" value="new Ground()" value-java=" new Ground()" enable="true"/>
                 <call expression="addObject(ground,867,794)" expression-java="addObject(ground, 867, 794)" enable="true"/>
-                <variable type="Block" type-java="Block" name="block" value="new Block()" value-java=" new Block()" enable="true"/>
+                <variable type="LBlock" type-java="LBlock" name="block" value="new LBlock()" value-java=" new LBlock()" enable="true"/>
                 <call expression="addObject(block,1463,702)" expression-java="addObject(block, 1463, 702)" enable="true"/>
-                <variable type="Block" type-java="Block" name="block2" value="new Block()" value-java=" new Block()" enable="true"/>
+                <variable type="LBlock" type-java="LBlock" name="block2" value="new LBlock()" value-java=" new LBlock()" enable="true"/>
                 <call expression="addObject(block2,1390,703)" expression-java="addObject(block2, 1390, 703)" enable="true"/>
-                <variable type="Block" type-java="Block" name="block3" value="new Block()" value-java=" new Block()" enable="true"/>
+                <variable type="LBlock" type-java="LBlock" name="block3" value="new LBlock()" value-java=" new LBlock()" enable="true"/>
                 <call expression="addObject(block3,1462,629)" expression-java="addObject(block3, 1462, 629)" enable="true"/>
                 <variable type="LongBlock" type-java="LongBlock" name="longBlock" value="new LongBlock()" value-java=" new LongBlock()" enable="true"/>
                 <call expression="addObject(longBlock,485,541)" expression-java="addObject(longBlock, 485, 541)" enable="true"/>
                 <variable type="Player" type-java="Player" name="jeremiah" value="new Player()" value-java=" new Player()" enable="true"/>
                 <call expression="addObject(jeremiah,281,411)" expression-java="addObject(jeremiah, 281, 411)" enable="true"/>
-                <variable type="Block" type-java="Block" name="block4" value="new Block()" value-java=" new Block()" enable="true"/>
-                <call expression="addObject(block4,37,462)" expression-java="addObject(block4, 37, 462)" enable="true"/>
-                <variable type="Block" type-java="Block" name="block5" value="new Block()" value-java=" new Block()" enable="true"/>
-                <call expression="addObject(block5,111,462)" expression-java="addObject(block5, 111, 462)" enable="true"/>
-                <variable type="Block" type-java="Block" name="block6" value="new Block()" value-java=" new Block()" enable="true"/>
-                <call expression="addObject(block6,38,387)" expression-java="addObject(block6, 38, 387)" enable="true"/>
                 <variable type="LongBlock" type-java="LongBlock" name="longBlock2" value="new LongBlock()" value-java=" new LongBlock()" enable="true"/>
-                <call expression="addObject(longBlock2,1014,288)" expression-java="addObject(longBlock2, 1014, 288)" enable="true"/>
+                <variable type="LBlock" type-java="LBlock" name="lBlock4" value="new LBlock()" value-java=" new LBlock()" enable="true"/>
+                <call expression="addObject(lBlock4,34,460)" expression-java="addObject(lBlock4, 34, 460)" enable="true"/>
+                <variable type="LBlock" type-java="LBlock" name="lBlock5" value="new LBlock()" value-java=" new LBlock()" enable="true"/>
+                <call expression="addObject(lBlock5,107,462)" expression-java="addObject(lBlock5, 107, 462)" enable="true"/>
+                <variable type="LBlock" type-java="LBlock" name="lBlock6" value="new LBlock()" value-java=" new LBlock()" enable="true"/>
+                <call expression="addObject(lBlock6,11,387)" expression-java="addObject(lBlock6, 11, 387)" enable="true"/>
+                <variable type="LBlock" type-java="LBlock" name="lBlock7" value="new LBlock()" value-java=" new LBlock()" enable="true"/>
+                <call expression="addObject(lBlock7,2,317)" expression-java="addObject(lBlock7, 2, 317)" enable="true"/>
             </body>
         </method>
     </methods>

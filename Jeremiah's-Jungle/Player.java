@@ -3,10 +3,10 @@ import greenfoot.*;
 public class Player extends Actor
 {
     private int speed = 5;         // Horizontal movement speed
-    private int jumpSpeed = -12;   // Jumping speed (negative to move upwards)
+    private int jumpSpeed = 40;   // Jumping speed (negative to move upwards)
     private int gravity = 1;       // Gravity to pull the player down
-    private int verticalSpeed = 0; // Vertical speed for jumping and gravity
-    private boolean onGround = false; // Check if the player is on the ground
+    private int verticalSpeed = -10; // Vertical speed for jumping and gravity
+    private boolean onGround = true; // Check if the player is on the ground
 
     public void act()
     {
@@ -33,7 +33,7 @@ public class Player extends Actor
     private void moveLeft()
     {
         int newX = getX() - speed;
-        if (!isBlockBlocked(newX, getY()))  // Check if the new position is blocked
+        if (!isLBlockBlocked(newX, getY()))  // Check if the new position is blocked
         {
             setLocation(newX, getY());  // Move left if no collision
         }
@@ -43,7 +43,7 @@ public class Player extends Actor
     private void moveRight()
     {
         int newX = getX() + speed;
-        if (!isBlockBlocked(newX, getY()))  // Check if the new position is blocked
+        if (!isLBlockBlocked(newX, getY()))  // Check if the new position is blocked
         {
             setLocation(newX, getY());  // Move right if no collision
         }
@@ -62,25 +62,26 @@ public class Player extends Actor
     // Handle jumping: if on the ground, apply an upward speed
     private void jump()
     {
-        if (Greenfoot.isKeyDown("space") && onGround)  // Only jump if on the ground
+        if (Greenfoot.isKeyDown("w") && onGround == true)  // Only jump if on the ground
         {
-            verticalSpeed = jumpSpeed;  // Apply jump speed (move upwards)
+            setLocation(getX(), getY() -5);
+            verticalSpeed = -15;  // Apply jump speed (move upwards)
             onGround = false;  // Player is in the air after jumping
         }
     }
 
     // Check if the player is colliding with any BarrierBlock at a specific position
-    private boolean isBlockBlocked(int newX, int newY)
+    private boolean isLBlockBlocked(int newX, int newY)
     {
-        Actor block = getOneObjectAtOffset(newX - getX() -25, newY - getY(), Block.class);
-        return block != null;  // If there is a block, return true
+        Actor lBlock = getOneObjectAtOffset(newX - getX() -25, newY - getY(), LBlock.class);
+        return lBlock != null;  // If there is a block, return true
     }
 
     // Check if the player is colliding with the ground or ceiling
     private void checkCollisions()
     {
         // Check for collision with the ground (or a block below the player)
-        if (isBlockBlocked(getX(), getY() + 25))  // Check if there's a block directly below
+        if (isLBlockBlocked(getX(), getY() + 75/2))  // Check if there's a block directly below
         {
             onGround = true;  // The player is on the ground
             verticalSpeed = 0;  // Stop downward movement (gravity)
@@ -91,7 +92,7 @@ public class Player extends Actor
         }
 
         // Check if the player is colliding with a ceiling (if jumping)
-        if (isBlockBlocked(getX(), getY() - 25))  // Check if there's a block directly above
+        if (isLBlockBlocked(getX(), getY() - 25))  // Check if there's a block directly above
         {
             verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
         }
