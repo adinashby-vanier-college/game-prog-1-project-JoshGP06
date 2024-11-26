@@ -60,6 +60,12 @@
                 <call expression="addObject(spikes5,730,492)" expression-java="addObject(spikes5, 730, 492)" enable="true"/>
                 <variable type="Spikes" type-java="Spikes" name="spikes6" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
                 <call expression="addObject(spikes6,393,492)" expression-java="addObject(spikes6, 393, 492)" enable="true"/>
+                <variable type="Spikes" type-java="Spikes" name="spikes7" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
+                <call expression="addObject(spikes7,454,202)" expression-java="addObject(spikes7, 454, 202)" enable="true"/>
+                <variable type="Spikes" type-java="Spikes" name="spikes8" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
+                <call expression="addObject(spikes8,748,202)" expression-java="addObject(spikes8, 748, 202)" enable="true"/>
+                <variable type="Spikes" type-java="Spikes" name="spikes9" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
+                <call expression="addObject(spikes9,1066,202)" expression-java="addObject(spikes9, 1066, 202)" enable="true"/>
             </body>
         </method>
     </methods>

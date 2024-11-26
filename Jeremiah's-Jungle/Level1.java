@@ -59,5 +59,11 @@ public class Level1 extends World
         addObject(spikes5, 730, 492);
         Spikes spikes6 =  new  Spikes();
         addObject(spikes6, 393, 492);
+        Spikes spikes7 =  new  Spikes();
+        addObject(spikes7, 454, 202);
+        Spikes spikes8 =  new  Spikes();
+        addObject(spikes8, 748, 202);
+        Spikes spikes9 =  new  Spikes();
+        addObject(spikes9, 1066, 202);
     }
 }
