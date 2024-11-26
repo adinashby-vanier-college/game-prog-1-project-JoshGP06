@@ -47,5 +47,17 @@ public class Level1 extends World
         addObject(rBlock4, 1500, 565);
         RLongBlock rLongBlock =  new  RLongBlock();
         addObject(rLongBlock, 1015, 252);
+        Spikes spikes =  new  Spikes();
+        addObject(spikes, 276, 729);
+        Spikes spikes2 =  new  Spikes();
+        addObject(spikes2, 605, 729);
+        Spikes spikes3 =  new  Spikes();
+        addObject(spikes3, 976, 729);
+        Spikes spikes4 =  new  Spikes();
+        addObject(spikes4, 1049, 492);
+        Spikes spikes5 =  new  Spikes();
+        addObject(spikes5, 730, 492);
+        Spikes spikes6 =  new  Spikes();
+        addObject(spikes6, 393, 492);
     }
 }

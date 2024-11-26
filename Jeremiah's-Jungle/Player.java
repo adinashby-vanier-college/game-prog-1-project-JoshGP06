@@ -2,7 +2,7 @@ import greenfoot.*;
 
 public class Player extends Actor
 {
-    private int speed = 5;         // Horizontal movement speed
+    private int speed = 7;         // Horizontal movement speed
     private int jumpSpeed = -15;   // Jumping speed (negative to move upwards)
     private int gravity = 1;       // Gravity to pull the player down
     private int verticalSpeed = -10; // Vertical speed for jumping and gravity
