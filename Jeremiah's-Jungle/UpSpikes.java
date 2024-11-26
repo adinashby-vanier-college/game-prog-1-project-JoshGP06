@@ -6,11 +6,11 @@ import greenfoot.*;
 /**
  * 
  */
-public class Spikes extends Actor
+public class UpSpikes extends Actor
 {
 
     /**
-     * Act - do whatever the Spikes wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - do whatever the UpSpikes wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {

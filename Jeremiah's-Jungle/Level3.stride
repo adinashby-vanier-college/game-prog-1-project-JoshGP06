@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class name="Level3" extends="World" enable="true" strideversion="1">
+<class name="Level3" extends="World" extends-java="World" enable="true" strideversion="1">
     <javadoc xml:space="preserve"/>
     <imports>
         <import target="java.util.*" enable="true"/>
@@ -12,7 +12,7 @@
             <javadoc xml:space="preserve">Constructor for objects of class Level3.</javadoc>
             <params/>
             <throws/>
-            <delegate target="super" params="600,400,1" params-java="600, 400, 1"/>
+            <delegate target="super" params="1500,800,1" params-java="1500, 800, 1"/>
             <body/>
         </constructor>
     </constructors>

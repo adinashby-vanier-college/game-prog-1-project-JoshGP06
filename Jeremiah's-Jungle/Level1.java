@@ -52,7 +52,7 @@ public class Level1 extends World
         Spikes spikes2 =  new  Spikes();
         addObject(spikes2, 605, 729);
         Spikes spikes3 =  new  Spikes();
-        addObject(spikes3, 976, 729);
+        addObject(spikes3, 950, 729);
         Spikes spikes4 =  new  Spikes();
         addObject(spikes4, 1049, 492);
         Spikes spikes5 =  new  Spikes();
@@ -65,5 +65,15 @@ public class Level1 extends World
         addObject(spikes8, 748, 202);
         Spikes spikes9 =  new  Spikes();
         addObject(spikes9, 1066, 202);
+        UpSpikes upSpikes =  new  UpSpikes();
+        addObject(upSpikes, 895, 302);
+        UpSpikes upSpikes2 =  new  UpSpikes();
+        addObject(upSpikes2, 545, 301);
+        UpSpikes upSpikes3 =  new  UpSpikes();
+        addObject(upSpikes3, 764, 591);
+        UpSpikes upSpikes4 =  new  UpSpikes();
+        addObject(upSpikes4, 421, 591);
+        Crown crown =  new  Crown();
+        addObject(crown, 1414, 176);
     }
 }

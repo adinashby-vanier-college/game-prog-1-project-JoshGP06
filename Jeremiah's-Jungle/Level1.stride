@@ -53,7 +53,7 @@
                 <variable type="Spikes" type-java="Spikes" name="spikes2" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
                 <call expression="addObject(spikes2,605,729)" expression-java="addObject(spikes2, 605, 729)" enable="true"/>
                 <variable type="Spikes" type-java="Spikes" name="spikes3" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
-                <call expression="addObject(spikes3,976,729)" expression-java="addObject(spikes3, 976, 729)" enable="true"/>
+                <call expression="addObject(spikes3,950,729)" expression-java="addObject(spikes3, 950, 729)" enable="true"/>
                 <variable type="Spikes" type-java="Spikes" name="spikes4" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
                 <call expression="addObject(spikes4,1049,492)" expression-java="addObject(spikes4, 1049, 492)" enable="true"/>
                 <variable type="Spikes" type-java="Spikes" name="spikes5" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
@@ -66,6 +66,16 @@
                 <call expression="addObject(spikes8,748,202)" expression-java="addObject(spikes8, 748, 202)" enable="true"/>
                 <variable type="Spikes" type-java="Spikes" name="spikes9" value="new Spikes()" value-java=" new Spikes()" enable="true"/>
                 <call expression="addObject(spikes9,1066,202)" expression-java="addObject(spikes9, 1066, 202)" enable="true"/>
+                <variable type="UpSpikes" type-java="UpSpikes" name="upSpikes" value="new UpSpikes()" value-java=" new UpSpikes()" enable="true"/>
+                <call expression="addObject(upSpikes,895,302)" expression-java="addObject(upSpikes, 895, 302)" enable="true"/>
+                <variable type="UpSpikes" type-java="UpSpikes" name="upSpikes2" value="new UpSpikes()" value-java=" new UpSpikes()" enable="true"/>
+                <call expression="addObject(upSpikes2,545,301)" expression-java="addObject(upSpikes2, 545, 301)" enable="true"/>
+                <variable type="UpSpikes" type-java="UpSpikes" name="upSpikes3" value="new UpSpikes()" value-java=" new UpSpikes()" enable="true"/>
+                <call expression="addObject(upSpikes3,764,591)" expression-java="addObject(upSpikes3, 764, 591)" enable="true"/>
+                <variable type="UpSpikes" type-java="UpSpikes" name="upSpikes4" value="new UpSpikes()" value-java=" new UpSpikes()" enable="true"/>
+                <call expression="addObject(upSpikes4,421,591)" expression-java="addObject(upSpikes4, 421, 591)" enable="true"/>
+                <variable type="Crown" type-java="Crown" name="crown" value="new Crown()" value-java=" new Crown()" enable="true"/>
+                <call expression="addObject(crown,1414,176)" expression-java="addObject(crown, 1414, 176)" enable="true"/>
             </body>
         </method>
     </methods>

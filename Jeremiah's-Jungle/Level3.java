@@ -14,6 +14,6 @@ public class Level3 extends World
      */
     public Level3()
     {
-        super(600, 400, 1);
+        super(1500, 800, 1);
     }
 }
