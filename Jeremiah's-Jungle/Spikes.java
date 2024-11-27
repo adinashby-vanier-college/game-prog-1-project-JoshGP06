@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -15,6 +14,9 @@ public class Spikes extends Actor
     public void act()
     {
         removeObject();
+        if (isGameLost()) {
+            transitionToGameOver();
+        }
     }
 
     /**
@@ -27,5 +29,25 @@ public class Spikes extends Actor
             World world = getWorld();
             world.removeObject(player);
         }
+    }
+    
+    public boolean isGameLost()
+    {
+        World world = getWorld();
+        if (world.getObjects(Player.class).isEmpty()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public void transitionToGameOver()
+    {
+        World level1 = getWorld();
+        //level1.stopped();
+        World gameLostWorld =  new GameLostWorld();
+        //gameOverWorld.started();
+        Greenfoot.setWorld(gameLostWorld);
     }
 }

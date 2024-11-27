@@ -14,6 +14,6 @@ public class Transition2 extends World
      */
     public Transition2()
     {
-        super(600, 400, 1);
+        super(1500, 800, 1);
     }
 }

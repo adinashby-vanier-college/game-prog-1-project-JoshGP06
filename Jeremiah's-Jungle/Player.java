@@ -14,8 +14,42 @@ public class Player extends Actor
         applyGravity();       // Apply gravity (fall if in the air)
         jump();               // Handle jumping
         checkCollisions();    // Check for collisions (ground, ceiling, etc.)
+        take();
+        if (isGameWon()) {
+            transitionToTransition1();
+        }
     }
-
+    
+    public boolean isGameWon()
+    {
+        World world = getWorld();
+        if (world.getObjects(Crown.class).isEmpty()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    public void transitionToTransition1()
+    {
+        World level1 = getWorld();
+        //level1.stopped();
+        World transition1 =  new  Transition1();
+        //gameWonWorld.started();
+        Greenfoot.setWorld(transition1);
+    }
+    
+    public void take()
+    {
+        Actor crown = getOneIntersectingObject(Crown.class);
+        if (crown != null) {
+            World world = getWorld();
+            world.removeObject(crown);
+            //Greenfoot.playSound("eating.wav");
+        }
+    }
+    
     // Handle left-right movement
     private void moveLeftRight()
     {

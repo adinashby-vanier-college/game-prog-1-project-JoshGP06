@@ -6,13 +6,13 @@ import greenfoot.*;
 /**
  * 
  */
-public class Transition1 extends World
+public class GameLostWorld extends World
 {
 
     /**
-     * Constructor for objects of class Transition1.
+     * Constructor for objects of class GameLostWorld.
      */
-    public Transition1()
+    public GameLostWorld()
     {
         super(1500, 800, 1);
     }

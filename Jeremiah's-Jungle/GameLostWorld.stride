@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class name="Transition1" extends="World" extends-java="World" enable="true" strideversion="1">
+<class name="GameLostWorld" extends="World" extends-java="World" enable="true" strideversion="1">
     <javadoc xml:space="preserve"/>
     <imports>
         <import target="java.util.*" enable="true"/>
@@ -9,7 +9,7 @@
     <fields/>
     <constructors>
         <constructor access="public" enable="true">
-            <javadoc xml:space="preserve">Constructor for objects of class Transition1.</javadoc>
+            <javadoc xml:space="preserve">Constructor for objects of class GameLostWorld.</javadoc>
             <params/>
             <throws/>
             <delegate target="super" params="1500,800,1" params-java="1500, 800, 1"/>
