@@ -3,5 +3,5 @@ comment0.target=GameLostWorld
 comment0.text=\r\n\ \r\n
 comment1.params=
 comment1.target=GameLostWorld()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameLostWorld.\r\n
+comment1.text=\r\n\ Losing\ text\r\n
 numComments=2

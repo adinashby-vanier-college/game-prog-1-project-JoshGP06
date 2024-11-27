@@ -16,6 +16,7 @@ public class Spikes extends Actor
         removeObject();
         if (isGameLost()) {
             transitionToGameOver();
+            Greenfoot.playSound("Missing Cap.wav"); 
         }
     }
 
@@ -28,6 +29,7 @@ public class Spikes extends Actor
         if (player != null) {
             World world = getWorld();
             world.removeObject(player);
+            Greenfoot.playSound("spikeImpact.wav"); 
         }
     }
     

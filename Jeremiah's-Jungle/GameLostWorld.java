@@ -10,10 +10,14 @@ public class GameLostWorld extends World
 {
 
     /**
-     * Constructor for objects of class GameLostWorld.
+     * Losing text
      */
     public GameLostWorld()
     {
         super(1500, 800, 1);
+        GreenfootImage textImage =  new  GreenfootImage("You Lost!", 128, Color.CYAN,  new  Color(0, 0, 0, 0));
+        int width = textImage.getWidth();
+        int height = textImage.getHeight();
+        getBackground().drawImage(textImage, getWidth() / 2 - width / 2, getHeight() / 2 - height / 2);
     }
 }

@@ -25,6 +25,7 @@ public class UpSpikes extends Actor
         if (player != null) {
             World world = getWorld();
             world.removeObject(player);
+            Greenfoot.playSound("spikeImpact.wav"); 
         }
     }
 }

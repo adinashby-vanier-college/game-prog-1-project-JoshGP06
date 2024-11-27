@@ -17,6 +17,7 @@ public class Player extends Actor
         take();
         if (isGameWon()) {
             transitionToTransition1();
+            Greenfoot.playSound("Win sound.wav"); 
         }
     }
     
@@ -108,6 +109,7 @@ public class Player extends Actor
         {
             verticalSpeed = jumpSpeed;  // Apply jump speed (move upwards)
             onGround = false;  // Player is in the air after jumping
+            Greenfoot.playSound("jump.wav"); 
         }
     }
 

@@ -8,6 +8,7 @@ import greenfoot.*;
  */
 public class Transition1 extends World
 {
+    private int counter = 0;
 
     /**
      * Constructor for objects of class Transition1.
@@ -15,5 +16,24 @@ public class Transition1 extends World
     public Transition1()
     {
         super(1500, 800, 1);
+    }
+
+    /**
+     * 
+     */
+    public void act()
+    {
+        counter = counter + 1;
+        if (counter == 125) {
+            transitionToLevel2();
+        }
+    }
+
+    /**
+     * 
+     */
+    public void transitionToLevel2()
+    {
+        Greenfoot.setWorld( new  Level2());
     }
 }
