@@ -13,8 +13,25 @@
             <params/>
             <throws/>
             <delegate target="super" params="1500,800,1" params-java="1500, 800, 1"/>
-            <body/>
+            <body>
+                <call expression="prepare()" expression-java="prepare()" enable="true"/>
+            </body>
         </constructor>
     </constructors>
-    <methods/>
+    <methods>
+        <method access="private" type="void" type-java="void" name="prepare" enable="true">
+            <javadoc xml:space="preserve">Prepare the world for the start of the program.
+That is: create the initial objects and add them to the world.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="BigBlock" type-java="BigBlock" name="bigBlock" value="new BigBlock()" value-java=" new BigBlock()" enable="true"/>
+                <call expression="addObject(bigBlock,1250,800)" expression-java="addObject(bigBlock, 1250, 800)" enable="true"/>
+                <variable type="BigBlock" type-java="BigBlock" name="bigBlock2" value="new BigBlock()" value-java=" new BigBlock()" enable="true"/>
+                <call expression="addObject(bigBlock2,750,800)" expression-java="addObject(bigBlock2, 750, 800)" enable="true"/>
+                <variable type="BigBlock" type-java="BigBlock" name="bigBlock3" value="new BigBlock()" value-java=" new BigBlock()" enable="true"/>
+                <call expression="addObject(bigBlock3,250,800)" expression-java="addObject(bigBlock3, 250, 800)" enable="true"/>
+            </body>
+        </method>
+    </methods>
 </class>

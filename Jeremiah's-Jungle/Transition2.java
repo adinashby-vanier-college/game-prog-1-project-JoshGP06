@@ -34,6 +34,6 @@ public class Transition2 extends World
      */
     public void transitionToLevel3()
     {
-        Greenfoot.setWorld( new  Level3());
+        Greenfoot.setWorld( new Level3());
     }
 }
