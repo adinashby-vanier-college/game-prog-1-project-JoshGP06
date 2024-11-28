@@ -18,7 +18,7 @@ public class DefeatedJeremiah extends Actor
      */
     public DefeatedJeremiah()
     {
-        GreenfootImage img =  new  GreenfootImage("LostJeremiah.png");
+        GreenfootImage img =  new GreenfootImage("LostJeremiah.png");
         setImage(img);
     }
 

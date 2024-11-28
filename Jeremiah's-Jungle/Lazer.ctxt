@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Lazer
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ timer()
+comment3.params=
+comment3.target=void\ removeObject()
+comment4.params=
+comment4.target=boolean\ isGameLost()
+comment5.params=
+comment5.target=void\ transitionToGameOver()
+numComments=6

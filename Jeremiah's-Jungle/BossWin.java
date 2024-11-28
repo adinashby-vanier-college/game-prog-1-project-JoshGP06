@@ -22,7 +22,7 @@ public class BossWin extends Actor
      */
     public BossWin()
     {
-        GreenfootImage img =  new  GreenfootImage("LaughingBoss.png");
+        GreenfootImage img =  new GreenfootImage("LaughingBoss.png");
         setImage(img);
     }
 

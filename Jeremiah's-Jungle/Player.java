@@ -2,6 +2,12 @@ import greenfoot.*;
 
 public class Player extends Actor
 {
+    private int dashCooldown = 0;  // Dash cooldown counter
+    private final int DASH_COOLDOWN_TIME = 180;  // 3 seconds = 180 frames
+    private int dashDistance = 80;  // Distance the player dashes
+    private boolean isDashing = false;  // To track if the player is in the middle of a dash
+    
+    
     private int speed = 6;         // Horizontal movement speed
     private int jumpSpeed = -15;   // Jumping speed (negative to move upwards)
     private int gravity = 1;       // Gravity to pull the player down
@@ -15,30 +21,60 @@ public class Player extends Actor
         jump();               // Handle jumping
         checkCollisions();    // Check for collisions (ground, ceiling, etc.)
         take();
-        if (isGameWon()) {
+        // Handle dash cooldown
+        if (dashCooldown > 0) {
+            dashCooldown--;  // Decrease the cooldown
+        }
+        
+        // Trigger dash when pressing "shift"
+        if (Greenfoot.isKeyDown("shift") && dashCooldown == 0) {
+            dash();
+            dashCooldown = DASH_COOLDOWN_TIME;  // Reset cooldown after dash
+        }
+        if (isGameWon1()) {
             transitionToTransition1();
+            Greenfoot.playSound("Win sound.wav"); 
+        }
+        if (isGameWon2()) {
+            transitionToTransition2();
             Greenfoot.playSound("Win sound.wav"); 
         }
     }
     
-    public boolean isGameWon()
+    // Check if the player has won in Level 1
+    public boolean isGameWon1()
     {
         World world = getWorld();
-        if (world.getObjects(Crown.class).isEmpty()) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        // The player wins if the Crown is collected (empty Crown objects list)
+        return world.getObjects(Crown.class).isEmpty();
     }
     
+    // Transition to Transition1 (level 1)
     public void transitionToTransition1()
     {
         World level1 = getWorld();
-        //level1.stopped();
-        World transition1 =  new  Transition1();
-        //gameWonWorld.started();
-        Greenfoot.setWorld(transition1);
+        if (level1 instanceof Level1) {
+            World transition1 = new Transition1();
+            Greenfoot.setWorld(transition1);  // Set the next world to Transition1
+        }
+    }
+    
+    // Check if the player has won in Level 2
+    public boolean isGameWon2()
+    {
+        World level2 = getWorld();
+        // The player wins if the Crown is collected (empty Crown objects list)
+        return level2.getObjects(Crown.class).isEmpty();
+    }
+    
+    // Transition to Transition2 (level 2)
+    public void transitionToTransition2()
+    {
+        World level2 = getWorld();
+        if (level2 instanceof Level2) {
+            World transition2 = new Transition2();
+            Greenfoot.setWorld(transition2);  // Set the next world to Transition2
+        }
     }
     
     public void take()
@@ -47,7 +83,6 @@ public class Player extends Actor
         if (crown != null) {
             World world = getWorld();
             world.removeObject(crown);
-            //Greenfoot.playSound("eating.wav");
         }
     }
     
@@ -110,6 +145,19 @@ public class Player extends Actor
             verticalSpeed = jumpSpeed;  // Apply jump speed (move upwards)
             onGround = false;  // Player is in the air after jumping
             Greenfoot.playSound("jump.wav"); 
+        }
+    }
+    
+    // Dash ability
+    private void dash() {
+        if (!isDashing) {
+            isDashing = true;
+            int direction = (Greenfoot.isKeyDown("a")) ? -1 : (Greenfoot.isKeyDown("d")) ? 1 : 0;
+            if (direction != 0) {
+                setLocation(getX() + direction * dashDistance, getY());
+            }
+            Greenfoot.playSound("dash.wav");
+            isDashing = false;
         }
     }
 

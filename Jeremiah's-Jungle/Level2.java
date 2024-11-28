@@ -75,5 +75,23 @@ public class Level2 extends World
         addObject(upSpikes4, 421, 591);
         Crown crown =  new  Crown();
         addObject(crown, 1414, 176);
+        Lazer lazer =  new  Lazer();
+        addObject(lazer, 1047, 410);
+        Lazer lazer2 =  new  Lazer();
+        addObject(lazer2, 731, 410);
+        Lazer lazer3 =  new  Lazer();
+        addObject(lazer3, 395, 410);
+        Lazer lazer4 =  new  Lazer();
+        addObject(lazer4, 1282, 168);
+        Lazer lazer5 =  new  Lazer();
+        addObject(lazer5, 1282, 75);
+        Lazer lazer6 =  new  Lazer();
+        addObject(lazer6, 1171, 667);
+        Lazer lazer7 =  new  Lazer();
+        addObject(lazer7, 1069, 115);
+        Lazer lazer8 =  new  Lazer();
+        addObject(lazer8, 751, 115);
+        Lazer lazer9 =  new  Lazer();
+        addObject(lazer9, 452, 115);
     }
 }

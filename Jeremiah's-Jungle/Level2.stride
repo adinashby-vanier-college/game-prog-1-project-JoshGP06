@@ -76,6 +76,24 @@
                 <call expression="addObject(upSpikes4,421,591)" expression-java="addObject(upSpikes4, 421, 591)" enable="true"/>
                 <variable type="Crown" type-java="Crown" name="crown" value="new Crown()" value-java=" new Crown()" enable="true"/>
                 <call expression="addObject(crown,1414,176)" expression-java="addObject(crown, 1414, 176)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer,1047,410)" expression-java="addObject(lazer, 1047, 410)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer2" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer2,731,410)" expression-java="addObject(lazer2, 731, 410)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer3" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer3,395,410)" expression-java="addObject(lazer3, 395, 410)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer4" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer4,1282,168)" expression-java="addObject(lazer4, 1282, 168)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer5" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer5,1282,75)" expression-java="addObject(lazer5, 1282, 75)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer6" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer6,1171,667)" expression-java="addObject(lazer6, 1171, 667)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer7" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer7,1069,115)" expression-java="addObject(lazer7, 1069, 115)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer8" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer8,751,115)" expression-java="addObject(lazer8, 751, 115)" enable="true"/>
+                <variable type="Lazer" type-java="Lazer" name="lazer9" value="new Lazer()" value-java=" new Lazer()" enable="true"/>
+                <call expression="addObject(lazer9,452,115)" expression-java="addObject(lazer9, 452, 115)" enable="true"/>
             </body>
         </method>
     </methods>

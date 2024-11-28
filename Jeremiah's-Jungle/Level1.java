@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -24,7 +23,7 @@ public class Level1 extends World
     private void prepare()
     {
         Ground ground =  new  Ground();
-        addObject(ground, 867, 794);
+        addObject(ground, 867, 800);
         LLongBlock lLongBlock =  new  LLongBlock();
         addObject(lLongBlock, 450, 541);
         Player jeremiah =  new  Player();
@@ -38,21 +37,21 @@ public class Level1 extends World
         LBlock lBlock7 =  new  LBlock();
         addObject(lBlock7, 0, 320);
         RBlock rBlock1 =  new  RBlock();
-        addObject(rBlock1, 1462, 715);
+        addObject(rBlock1, 1462, 721);
         RBlock rBlock2 =  new  RBlock();
-        addObject(rBlock2, 1464, 640);
+        addObject(rBlock2, 1464, 646);
         RBlock rBlock3 =  new  RBlock();
-        addObject(rBlock3, 1387, 715);
+        addObject(rBlock3, 1387, 721);
         RBlock rBlock4 =  new  RBlock();
-        addObject(rBlock4, 1500, 565);
+        addObject(rBlock4, 1500, 571);
         RLongBlock rLongBlock =  new  RLongBlock();
         addObject(rLongBlock, 1015, 252);
         Spikes spikes =  new  Spikes();
-        addObject(spikes, 276, 729);
+        addObject(spikes, 276, 735);
         Spikes spikes2 =  new  Spikes();
-        addObject(spikes2, 605, 729);
+        addObject(spikes2, 605, 735);
         Spikes spikes3 =  new  Spikes();
-        addObject(spikes3, 950, 729);
+        addObject(spikes3, 950, 735);
         Spikes spikes4 =  new  Spikes();
         addObject(spikes4, 1049, 492);
         Spikes spikes5 =  new  Spikes();
