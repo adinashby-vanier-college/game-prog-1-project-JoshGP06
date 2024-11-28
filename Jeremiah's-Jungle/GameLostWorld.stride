@@ -14,12 +14,40 @@
             <throws/>
             <delegate target="super" params="1500,800,1" params-java="1500, 800, 1"/>
             <body>
-                <variable type="GreenfootImage" type-java="GreenfootImage" name="textImage" value="new GreenfootImage(&quot;You Lost!&quot;,128,Color.CYAN,new Color(0,0,0,0))" value-java=" new GreenfootImage(&quot;You Lost!&quot;, 128, Color.CYAN, new Color(0, 0, 0, 0))" enable="true"/>
-                <variable type="int" type-java="int" name="width" value="textImage.getWidth()" value-java="textImage.getWidth()" enable="true"/>
-                <variable type="int" type-java="int" name="height" value="textImage.getHeight()" value-java="textImage.getHeight()" enable="true"/>
-                <call expression="getBackground().drawImage(textImage,getWidth()/2-width/2,getHeight()/2-height/2)" expression-java="getBackground().drawImage(textImage, getWidth() / 2 - width / 2, getHeight() / 2 - height / 2)" enable="true"/>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="gameOverText" value="new GreenfootImage(&quot;GAME OVER&quot;,128,Color.CYAN,new Color(0,0,0,0))" value-java=" new GreenfootImage(&quot;GAME OVER&quot;, 128, Color.CYAN, new Color(0, 0, 0, 0))" enable="true"/>
+                <variable type="int" type-java="int" name="width" value="gameOverText.getWidth()" value-java="gameOverText.getWidth()" enable="true"/>
+                <variable type="int" type-java="int" name="height" value="gameOverText.getHeight()" value-java="gameOverText.getHeight()" enable="true"/>
+                <call expression="getBackground().drawImage(gameOverText,getWidth()/2-width/2,getHeight()/2-height/2)" expression-java="getBackground().drawImage(gameOverText, getWidth() / 2 - width / 2, getHeight() / 2 - height / 2)" enable="true"/>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="youDiedText" value="new GreenfootImage(&quot;THERE'S A NEW KING IN THE JUNGLE!&quot;,48,Color.WHITE,new Color(0,0,0,0))" value-java=" new GreenfootImage(&quot;THERE'S A NEW KING IN THE JUNGLE!&quot;, 48, Color.WHITE, new Color(0, 0, 0, 0))" enable="true"/>
+                <call expression="getBackground().drawImage(youDiedText,getWidth()/2-youDiedText.getWidth()/2,getHeight()/2+100)" expression-java="getBackground().drawImage(youDiedText, getWidth() / 2 - youDiedText.getWidth() / 2, getHeight() / 2 + 100)" enable="true"/>
+                <call expression="prepare()" expression-java="prepare()" enable="true"/>
             </body>
         </constructor>
     </constructors>
-    <methods/>
+    <methods>
+        <method access="private" type="void" type-java="void" name="prepare" enable="true">
+            <javadoc xml:space="preserve">Prepare the world for the start of the program.
+That is: create the initial objects and add them to the world.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="BossWin" type-java="BossWin" name="bossWin" value="new BossWin()" value-java=" new BossWin()" enable="true"/>
+                <call expression="addObject(bossWin,1264,395)" expression-java="addObject(bossWin, 1264, 395)" enable="true"/>
+                <variable type="DefeatedJeremiah" type-java="DefeatedJeremiah" name="defeatedJeremiah" value="new DefeatedJeremiah()" value-java=" new DefeatedJeremiah()" enable="true"/>
+                <call expression="addObject(defeatedJeremiah,159,416)" expression-java="addObject(defeatedJeremiah, 159, 416)" enable="true"/>
+                <call expression="bossWin.setLocation(1224,453)" expression-java="bossWin.setLocation(1224, 453)" enable="true"/>
+                <call expression="bossWin.setLocation(1184,473)" expression-java="bossWin.setLocation(1184, 473)" enable="true"/>
+                <call expression="bossWin.setLocation(1264,404)" expression-java="bossWin.setLocation(1264, 404)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(217,592)" expression-java="defeatedJeremiah.setLocation(217, 592)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(261,561)" expression-java="defeatedJeremiah.setLocation(261, 561)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(278,551)" expression-java="defeatedJeremiah.setLocation(278, 551)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(295,562)" expression-java="defeatedJeremiah.setLocation(295, 562)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(273,562)" expression-java="defeatedJeremiah.setLocation(273, 562)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(156,552)" expression-java="defeatedJeremiah.setLocation(156, 552)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(206,564)" expression-java="defeatedJeremiah.setLocation(206, 564)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(173,618)" expression-java="defeatedJeremiah.setLocation(173, 618)" enable="true"/>
+                <call expression="defeatedJeremiah.setLocation(84,558)" expression-java="defeatedJeremiah.setLocation(84, 558)" enable="true"/>
+            </body>
+        </method>
+    </methods>
 </class>

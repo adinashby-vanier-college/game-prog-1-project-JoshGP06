@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=BossWin
+comment0.text=\r\n\ \r\n
+comment1.params=
+comment1.target=BossWin()
+comment1.text=\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ BossWin\ wants\ to\ do.\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ animateMovement()
+comment3.text=\r\n\ Makes\ the\ boss\ jump\ in\ victory\ in\ the\ GAME\ OVER\ screen\r\n
+comment4.params=
+comment4.target=void\ animateGlow()
+comment4.text=\r\n\ Adds\ a\ glowing\ effect\ to\ the\ boss\ to\ add\ to\ his\ aura\r\n
+comment5.params=
+comment5.target=void\ rotateEffect()
+comment5.text=\r\n\ Rotates\ boss\ to\ give\ him\ a\ laughing\ effect\r\n
+numComments=6

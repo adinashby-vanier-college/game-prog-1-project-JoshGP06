@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="DefeatedJeremiah" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="java.util.*" enable="true"/>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields>
+        <variable access="private" type="int" type-java="int" name="rotationSpeed" value="5" value-java="5" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="maxRotation" value="15" value-java="15" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="minRotation" value="-15" value-java="-15" enable="true"/>
+        <variable access="private" type="int" type-java="int" name="currentRotation" value="0" value-java="0" enable="true"/>
+    </fields>
+    <constructors>
+        <constructor access="public" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="GreenfootImage" type-java="GreenfootImage" name="img" value="new GreenfootImage(&quot;LostJeremiah.png&quot;)" value-java=" new GreenfootImage(&quot;LostJeremiah.png&quot;)" enable="true"/>
+                <call expression="setImage(img)" expression-java="setImage(img)" enable="true"/>
+            </body>
+        </constructor>
+    </constructors>
+    <methods>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the DefeatedJeremiah wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="stressRotation()" expression-java="stressRotation()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="stressRotation" enable="true">
+            <javadoc xml:space="preserve">Makes Jeremiah shake in defeat in the losing screen.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <if condition="currentRotation&gt;=maxRotation||currentRotation&lt;=minRotation" condition-java="currentRotation &gt;= maxRotation || currentRotation &lt;= minRotation" enable="true">
+                    <ifStatements>
+                        <assign dest="rotationSpeed" dest-java="rotationSpeed" src="-rotationSpeed" src-java=" - rotationSpeed" enable="true"/>
+                    </ifStatements>
+                </if>
+                <assign dest="currentRotation" dest-java="currentRotation" src="currentRotation+rotationSpeed" src-java="currentRotation + rotationSpeed" enable="true"/>
+                <call expression="setRotation(currentRotation)" expression-java="setRotation(currentRotation)" enable="true"/>
+            </body>
+        </method>
+    </methods>
+</class>
