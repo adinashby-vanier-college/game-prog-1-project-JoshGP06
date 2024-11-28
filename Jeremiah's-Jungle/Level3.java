@@ -24,11 +24,11 @@ public class Level3 extends World
      */
     private void prepare()
     {
-        BigBlock bigBlock =  new  BigBlock();
+        BigBlock bigBlock =  new BigBlock();
         addObject(bigBlock, 1250, 800);
-        BigBlock bigBlock2 =  new  BigBlock();
+        BigBlock bigBlock2 =  new BigBlock();
         addObject(bigBlock2, 750, 800);
-        BigBlock bigBlock3 =  new  BigBlock();
+        BigBlock bigBlock3 =  new BigBlock();
         addObject(bigBlock3, 250, 800);
     }
 }
