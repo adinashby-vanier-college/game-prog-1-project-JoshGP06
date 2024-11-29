@@ -19,7 +19,7 @@ public class Lazer extends Actor
     public void timer()
     {
         // Every 120 acts (which is equivalent to about 2 seconds if the world is running at 60fps)
-        if (timer % 120 == 0) {
+        if (timer % 100 == 0) {
             if (visible) {
                 setImage("invisible.png");  // Change image to an invisible one (or you can remove it)
                 visible = false;
@@ -55,13 +55,13 @@ public class Lazer extends Actor
     
     public void transitionToGameOver()
     {
-        World level2 = getWorld();
-        //level1.stopped();
-        World gameLostWorld =  new GameLostWorld();
-        //gameOverWorld.started();
-        Greenfoot.setWorld(gameLostWorld);
-             if(level2 instanceof Level2){
-        ((Level2) level2).stopMusic(); 
-    }
+            World level2 = getWorld();
+            //level1.stopped();
+            World gameLostWorld =  new GameLostWorld();
+            //gameOverWorld.started();
+            Greenfoot.setWorld(gameLostWorld);
+                 if(level2 instanceof Level2){
+            level2.stopped(); 
+        }
     }
 }

@@ -75,13 +75,17 @@ public class StartWorld extends World
     private void transitionToLevel1() {
         World level1 = new Level1();  // Replace with your actual Level 1 class
         Greenfoot.setWorld(level1);  // Set the world to Level 1
+        level1.started();
         backgroundMusic.stop(); 
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
+        Info info = new Info();
+        addObject(info,717,713);
     }
 }

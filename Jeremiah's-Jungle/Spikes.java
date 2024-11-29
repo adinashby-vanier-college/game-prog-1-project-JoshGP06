@@ -51,14 +51,12 @@ public class Spikes extends Actor
         World gameLostWorld =  new GameLostWorld();
         //gameOverWorld.started();
         Greenfoot.setWorld(gameLostWorld);
-        if(level1 instanceof Level1){
-        ((Level1) level1).stopMusic(); 
+            if(level1 instanceof Level1){
+            level1.stopped(); 
+        }
+        World level2 = getWorld(); 
+            if(level2 instanceof Level2){
+            level2.stopped(); 
+        }
     }
-    World level2 = getWorld(); 
-        if(level2 instanceof Level2){
-        ((Level2) level2).stopMusic(); 
-    }
-    }
-    
-
 }

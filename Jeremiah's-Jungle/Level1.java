@@ -15,12 +15,20 @@ public class Level1 extends World
     {
         super(1500, 800, 1);
         music = new GreenfootSound("level1.mp3");
-        music.playLoop();  // Play the background music in a loop
         prepare();
+        started();  // Play the background music in a loop
+        stopped();
     }
-public void stopMusic(){
-    music.stop();
-}
+    
+    public void started()
+    {
+        music.playLoop();
+    }
+
+    public void stopped()
+    {
+        music.stop();
+    }
     /**
      * Prepare the world for the start of the program. That is: create the initial objects and add them to the world.
      */

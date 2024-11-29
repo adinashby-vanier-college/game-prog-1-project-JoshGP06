@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -34,6 +33,8 @@ public class Transition1 extends World
      */
     public void transitionToLevel2()
     {
-        Greenfoot.setWorld( new  Level2());
+        World level2 = new Level2();
+        Greenfoot.setWorld(level2);  // Set the next world to Transition2
+        level2.started();
     }
 }

@@ -33,7 +33,7 @@ public class Player extends Actor
         }
         if (isGameWon1()) {
             transitionToTransition1();
-            Greenfoot.playSound("Win sound.wav"); 
+            Greenfoot.playSound("Win sound.wav");
         }
         if (isGameWon2()) {
             transitionToTransition2();
@@ -54,9 +54,9 @@ public class Player extends Actor
     {
         World level1 = getWorld();
         if (level1 instanceof Level1) {
+            level1.stopped();
             World transition1 = new Transition1();
             Greenfoot.setWorld(transition1);  // Set the next world to Transition1
-            ((Level1) level1).stopMusic(); 
         }
     }
     
@@ -75,7 +75,7 @@ public class Player extends Actor
         if (level2 instanceof Level2) {
             World transition2 = new Transition2();
             Greenfoot.setWorld(transition2);  // Set the next world to Transition2
-            ((Level2) level2).stopMusic(); 
+            level2.stopped(); 
         }
     }
     

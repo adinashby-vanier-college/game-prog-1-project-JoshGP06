@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -18,13 +17,16 @@ public class Level2 extends World
         super(1500, 800, 1);
         prepare();
         music =  new  GreenfootSound("level2.mp3");
+        started();
+        stopped();
+    }
+
+    public void started()
+    {
         music.playLoop();
     }
 
-    /**
-     * Stops music
-     */
-    public void stopMusic()
+    public void stopped()
     {
         music.stop();
     }
