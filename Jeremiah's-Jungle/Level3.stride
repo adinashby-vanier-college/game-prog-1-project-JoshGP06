@@ -6,7 +6,9 @@
         <import target="greenfoot.*" enable="true"/>
     </imports>
     <implements/>
-    <fields/>
+    <fields>
+        <variable access="private" type="GreenfootSound" type-java="GreenfootSound" name="music" enable="true"/>
+    </fields>
     <constructors>
         <constructor access="public" enable="true">
             <javadoc xml:space="preserve">Constructor for objects of class Level3.</javadoc>
@@ -15,10 +17,20 @@
             <delegate target="super" params="1500,800,1" params-java="1500, 800, 1"/>
             <body>
                 <call expression="prepare()" expression-java="prepare()" enable="true"/>
+                <assign dest="music" dest-java="music" src="new GreenfootSound(&quot;level3.WAV&quot;)" src-java=" new GreenfootSound(&quot;level3.WAV&quot;)" enable="true"/>
+                <call expression="music.playLoop()" expression-java="music.playLoop()" enable="true"/>
             </body>
         </constructor>
     </constructors>
     <methods>
+        <method access="public" type="void" type-java="void" name="stopMusic" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <call expression="music.stop()" expression-java="music.stop()" enable="true"/>
+            </body>
+        </method>
         <method access="private" type="void" type-java="void" name="prepare" enable="true">
             <javadoc xml:space="preserve">Prepare the world for the start of the program.
 That is: create the initial objects and add them to the world.</javadoc>

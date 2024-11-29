@@ -60,5 +60,8 @@ public class Lazer extends Actor
         World gameLostWorld =  new GameLostWorld();
         //gameOverWorld.started();
         Greenfoot.setWorld(gameLostWorld);
+             if(level2 instanceof Level2){
+        ((Level2) level2).stopMusic(); 
+    }
     }
 }

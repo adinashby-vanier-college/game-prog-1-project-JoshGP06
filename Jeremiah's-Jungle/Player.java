@@ -56,6 +56,7 @@ public class Player extends Actor
         if (level1 instanceof Level1) {
             World transition1 = new Transition1();
             Greenfoot.setWorld(transition1);  // Set the next world to Transition1
+            ((Level1) level1).stopMusic(); 
         }
     }
     
@@ -74,6 +75,7 @@ public class Player extends Actor
         if (level2 instanceof Level2) {
             World transition2 = new Transition2();
             Greenfoot.setWorld(transition2);  // Set the next world to Transition2
+            ((Level2) level2).stopMusic(); 
         }
     }
     

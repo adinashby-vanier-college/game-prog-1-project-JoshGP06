@@ -8,6 +8,7 @@ import greenfoot.*;
  */
 public class Level3 extends World
 {
+    private GreenfootSound music;
 
     /**
      * Constructor for objects of class Level3.
@@ -16,6 +17,16 @@ public class Level3 extends World
     {
         super(1500, 800, 1);
         prepare();
+        music =  new  GreenfootSound("level3.WAV");
+        music.playLoop();
+    }
+
+    /**
+     * 
+     */
+    public void stopMusic()
+    {
+        music.stop();
     }
 
     /**
@@ -24,11 +35,11 @@ public class Level3 extends World
      */
     private void prepare()
     {
-        BigBlock bigBlock =  new BigBlock();
+        BigBlock bigBlock =  new  BigBlock();
         addObject(bigBlock, 1250, 800);
-        BigBlock bigBlock2 =  new BigBlock();
+        BigBlock bigBlock2 =  new  BigBlock();
         addObject(bigBlock2, 750, 800);
-        BigBlock bigBlock3 =  new BigBlock();
+        BigBlock bigBlock3 =  new  BigBlock();
         addObject(bigBlock3, 250, 800);
     }
 }

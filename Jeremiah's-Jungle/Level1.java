@@ -7,16 +7,20 @@ import greenfoot.*;
  */
 public class Level1 extends World
 {
-
+    private GreenfootSound music;
     /**
      * Constructor for objects of class MyWorld.
      */
     public Level1()
     {
         super(1500, 800, 1);
+        music = new GreenfootSound("level1.mp3");
+        music.playLoop();  // Play the background music in a loop
         prepare();
     }
-
+public void stopMusic(){
+    music.stop();
+}
     /**
      * Prepare the world for the start of the program. That is: create the initial objects and add them to the world.
      */
