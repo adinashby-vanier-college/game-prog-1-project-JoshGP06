@@ -3,7 +3,7 @@ import greenfoot.*;
 public class Player extends Actor
 {
     private int dashCooldown = 0;  // Dash cooldown counter
-    private final int DASH_COOLDOWN_TIME = 180;  // 3 seconds = 180 frames
+    private final int DASH_COOLDOWN_TIME = 120;  // 2 seconds = 120 frames
     private int dashDistance = 80;  // Distance the player dashes
     private boolean isDashing = false;  // To track if the player is in the middle of a dash
     
@@ -37,6 +37,10 @@ public class Player extends Actor
         }
         if (isGameWon2()) {
             transitionToTransition2();
+            Greenfoot.playSound("Win sound.wav"); 
+        }
+        if (isGameWon3()) {
+            transitionToGameWonWorld();
             Greenfoot.playSound("Win sound.wav"); 
         }
     }
@@ -73,9 +77,27 @@ public class Player extends Actor
     {
         World level2 = getWorld();
         if (level2 instanceof Level2) {
+            level2.stopped(); 
             World transition2 = new Transition2();
             Greenfoot.setWorld(transition2);  // Set the next world to Transition2
-            level2.stopped(); 
+        }
+    }
+    
+    public boolean isGameWon3()
+    {
+        World level3 = getWorld();
+        // The player wins if the Crown is collected (empty Crown objects list)
+        return level3.getObjects(Crown.class).isEmpty();
+    }
+    
+    // Transition to Transition2 (level 2)
+    public void transitionToGameWonWorld()
+    {
+        World level3 = getWorld();
+        if (level3 instanceof Level3) {
+            level3.stopped(); 
+            World gameWonWorld = new GameWonWorld();
+            Greenfoot.setWorld(gameWonWorld);  // Set the next world to Transition2
         }
     }
     
@@ -189,6 +211,11 @@ public class Player extends Actor
         Actor ground = getOneObjectAtOffset(newX - getX(), newY - getY()-15, Ground.class);
         return ground != null;  // If there is a block, return true
     }
+    private boolean isBigBlockBlocked(int newX, int newY)
+    {
+        Actor bigBlock = getOneObjectAtOffset(newX - getX(), newY - getY()-15, BigBlock.class);
+        return bigBlock != null;  // If there is a block, return true
+    }
         
     // Check if the player is colliding with the ground or ceiling
     private void checkCollisions()
@@ -236,6 +263,15 @@ public class Player extends Actor
         {
             // Adjust player's vertical position so they land on top of the block
             while (isRLongBlockBlocked(getX(), getY() + 75 / 2)) {
+                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+            }
+            onGround = true;  // The player is on the ground
+            verticalSpeed = 0;  // Stop downward movement (gravity)
+        }
+        else if (isBigBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LBlock directly below
+        {
+            // Adjust player's vertical position so they land on top of the block
+            while (isBigBlockBlocked(getX(), getY() + 75 / 2)) {
                 setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
             }
             onGround = true;  // The player is on the ground

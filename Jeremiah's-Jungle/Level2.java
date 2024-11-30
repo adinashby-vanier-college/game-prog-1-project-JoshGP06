@@ -9,9 +9,6 @@ public class Level2 extends World
 {
     private GreenfootSound music;
 
-    /**
-     * Constructor for objects of class Level2.
-     */
     public Level2()
     {
         super(1500, 800, 1);
@@ -30,10 +27,7 @@ public class Level2 extends World
     {
         music.stop();
     }
-
-    /**
-     * Prepare the world for the start of the program. That is: create the initial objects and add them to the world.
-     */
+    
     private void prepare()
     {
         Ground ground =  new  Ground();
