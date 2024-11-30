@@ -87,5 +87,15 @@ public class StartWorld extends World
     {
         Info info = new Info();
         addObject(info,717,713);
+        info.setLocation(782,683);
+        info.setLocation(760,689);
+        info.setLocation(753,688);
+        info.setLocation(754,685);
+        info.setLocation(747,701);
+        info.setLocation(739,707);
+        info.setLocation(757,690);
+        info.setLocation(748,705);
+        info.setLocation(742,691);
+        info.setLocation(755,704);
     }
 }

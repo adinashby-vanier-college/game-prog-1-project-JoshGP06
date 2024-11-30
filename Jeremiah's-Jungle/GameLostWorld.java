@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -15,11 +14,11 @@ public class GameLostWorld extends World
     public GameLostWorld()
     {
         super(1500, 800, 1);
-        GreenfootImage gameOverText =  new GreenfootImage("GAME OVER", 128, Color.CYAN, new Color(0, 0, 0, 0));
+        GreenfootImage gameOverText =  new  GreenfootImage("GAME OVER", 128, Color.CYAN,  new  Color(0, 0, 0, 0));
         int width = gameOverText.getWidth();
         int height = gameOverText.getHeight();
         getBackground().drawImage(gameOverText, getWidth() / 2 - width / 2, getHeight() / 2 - height / 2);
-        GreenfootImage youDiedText =  new GreenfootImage("THERE'S A NEW KING IN THE JUNGLE!", 48, Color.WHITE, new Color(0, 0, 0, 0));
+        GreenfootImage youDiedText =  new  GreenfootImage("THERE'S A NEW KING IN THE JUNGLE!", 48, Color.WHITE,  new  Color(0, 0, 0, 0));
         getBackground().drawImage(youDiedText, getWidth() / 2 - youDiedText.getWidth() / 2, getHeight() / 2 + 100);
         prepare();
     }
@@ -30,9 +29,9 @@ public class GameLostWorld extends World
      */
     private void prepare()
     {
-        BossWin bossWin =  new BossWin();
+        BossWin bossWin =  new  BossWin();
         addObject(bossWin, 1264, 395);
-        DefeatedJeremiah defeatedJeremiah =  new DefeatedJeremiah();
+        DefeatedJeremiah defeatedJeremiah =  new  DefeatedJeremiah();
         addObject(defeatedJeremiah, 159, 416);
         bossWin.setLocation(1224, 453);
         bossWin.setLocation(1184, 473);

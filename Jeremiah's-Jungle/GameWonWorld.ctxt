@@ -1,7 +1,14 @@
 #BlueJ class context
 comment0.target=GameWonWorld
-comment0.text=\r\n\ \r\n
+comment0.text=\r\n\ Winning\ screen\ for\ the\ game.\r\n
 comment1.params=
 comment1.target=GameWonWorld()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GameWonWorld.\r\n
-numComments=2
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ addConfetti()
+comment4.params=
+comment4.target=void\ prepare()
+comment4.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\r\n\ In\ this\ case,\ no\ actors\ are\ needed,\ but\ you\ can\ add\ any\ other\ elements\ here.\r\n
+numComments=5

@@ -1,4 +1,3 @@
-// WARNING: This file is auto-generated and any changes to it will be overwritten
 import lang.stride.*;
 import java.util.*;
 import greenfoot.*;
@@ -18,7 +17,7 @@ public class DefeatedJeremiah extends Actor
      */
     public DefeatedJeremiah()
     {
-        GreenfootImage img =  new GreenfootImage("LostJeremiah.png");
+        GreenfootImage img =  new  GreenfootImage("LostJeremiah.png");
         setImage(img);
     }
 
