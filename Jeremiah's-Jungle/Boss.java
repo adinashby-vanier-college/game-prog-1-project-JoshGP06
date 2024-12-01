@@ -16,37 +16,36 @@ public class Boss extends Actor
     private int jumpPhase = 0; // 0 = Right to Left, 1 = Left to Middle, 2 = Middle to Right
     private int waitTimer = 0; // Timer for the 3-second wait
     private boolean isRemoved = false; // Flag to track if the boss has been removed from the world
-
+    private int start = 0;
+    
     public void act()
-    {
-        if (!isRemoved) {
-            if (!shouldStopJumping) {
-                checkCollisionWithFrog();
-                if (isJumping) {
-                        performJump(); // Handle the jump animation
+    {   
+        start++;
+        if(start >= 90){
+            if (!isRemoved) {
+                if (!shouldStopJumping) {
+                    checkCollisionWithFrog();
+                    if (isJumping) {
+                            performJump(); // Handle the jump animation
+                        } else {
+                            initiateJump(); // Begin the jump
+                        }
                     } else {
-                        initiateJump(); // Begin the jump
-                    }
-                } else {
-                    // After the last jump, start the timer for a 3-second wait
-                if (jumpPhase > 4 && currentFrame >= totalFrames) {
-                    waitTimer++; // Increase the wait timer
-                    setImage("textBoss.png");
-                    setLocation(1200,350);
-                    
-                    // If the wait time exceeds 3 seconds (assuming each frame is 1/60 second)
-                    if (waitTimer >= 180) { // 180 frames = 3 seconds at 60 FPS
-                        getWorld().removeObject(this); // Safely remove the boss after the wait
-                        isRemoved = true; // Set the removed flag to prevent further actions
+                        // After the last jump, start the timer for a 3-second wait
+                    if (jumpPhase > 4 && currentFrame >= totalFrames) {
+                        waitTimer++; // Increase the wait timer
+                        setImage("textBoss.png");
+                        setLocation(1200,350);
+                        
+                        // If the wait time exceeds 3 seconds (assuming each frame is 1/60 second)
+                        if (waitTimer >= 180) { // 180 frames = 3 seconds at 60 FPS
+                            getWorld().removeObject(this); // Safely remove the boss after the wait
+                            isRemoved = true; // Set the removed flag to prevent further actions
+                        }
                     }
                 }
             }
         }
-        /*
-        if (isGameLost()) {
-            transitionToGameOver();
-            Greenfoot.playSound("Missing Cap.wav"); 
-        }*/
     }
     
     private void initiateJump() {
@@ -130,12 +129,5 @@ public class Boss extends Actor
             Greenfoot.playSound("Missing Cap.wav"); 
         }
     }
-    /*   
-    public void transitionToGameOver()
-    {
-        World level3 = getWorld();
-        level3.stopped();
-        World gameLostWorld =  new GameLostWorld();
-        Greenfoot.setWorld(gameLostWorld);
-    }*/
+    
 }

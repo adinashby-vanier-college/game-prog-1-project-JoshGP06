@@ -48,6 +48,11 @@ public class Crown extends Actor
         Actor bigBlock = getOneObjectAtOffset(newX - getX(), newY - getY()-15, BigBlock.class);
         return bigBlock != null;  // If there is a block, return true
     }
+    private boolean isRLongBlockBlocked(int newX, int newY)
+    {
+        Actor rLongBlock = getOneObjectAtOffset(newX - getX() + 75/2, newY - getY(), RLongBlock.class);
+        return rLongBlock != null;  // If there is a block, return true
+    }
     
     private void checkCollisions()
     {
@@ -55,6 +60,15 @@ public class Crown extends Actor
         {
             // Adjust player's vertical position so they land on top of the block
             while (isBigBlockBlocked(getX(), getY() + 75 / 2)) {
+                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+            }
+            onGround = true;  // The player is on the ground
+            verticalSpeed = 0;  // Stop downward movement (gravity)
+        }
+        else if (isRLongBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LLongBlock directly below
+        {
+            // Adjust player's vertical position so they land on top of the block
+            while (isRLongBlockBlocked(getX(), getY() + 75 / 2)) {
                 setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
             }
             onGround = true;  // The player is on the ground

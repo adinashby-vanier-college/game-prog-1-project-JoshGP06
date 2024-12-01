@@ -222,7 +222,7 @@ public class Player extends Actor
     {
         boolean wasOnGround = onGround;  // Save the previous onGround state
     
-        // Check if the player is colliding with an LBlock below (for landing)
+        // Check if the player is colliding with an Block below (for landing)
         if (isLBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LBlock directly below
         {
             // Adjust player's vertical position so they land on top of the block

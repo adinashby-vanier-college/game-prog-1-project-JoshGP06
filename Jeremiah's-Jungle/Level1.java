@@ -79,7 +79,7 @@ public class Level1 extends World
         UpSpikes upSpikes =  new  UpSpikes();
         addObject(upSpikes, 895, 302);
         UpSpikes upSpikes2 =  new  UpSpikes();
-        addObject(upSpikes2, 545, 301);
+        addObject(upSpikes2, 545, 302);
         UpSpikes upSpikes3 =  new  UpSpikes();
         addObject(upSpikes3, 764, 591);
         UpSpikes upSpikes4 =  new  UpSpikes();
