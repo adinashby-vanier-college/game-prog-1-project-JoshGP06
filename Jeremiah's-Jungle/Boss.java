@@ -31,7 +31,9 @@ public class Boss extends Actor
                     // After the last jump, start the timer for a 3-second wait
                 if (jumpPhase > 4 && currentFrame >= totalFrames) {
                     waitTimer++; // Increase the wait timer
-
+                    setImage("textBoss.png");
+                    setLocation(1200,350);
+                    
                     // If the wait time exceeds 3 seconds (assuming each frame is 1/60 second)
                     if (waitTimer >= 180) { // 180 frames = 3 seconds at 60 FPS
                         getWorld().removeObject(this); // Safely remove the boss after the wait
@@ -125,6 +127,7 @@ public class Boss extends Actor
             level3.stopped();
             World gameLostWorld =  new GameLostWorld();
             Greenfoot.setWorld(gameLostWorld);
+            Greenfoot.playSound("Missing Cap.wav"); 
         }
     }
     /*   
