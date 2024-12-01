@@ -46,6 +46,6 @@ public class Level3 extends World
         Crown crown = new Crown();
         addObject(crown,1400,100);
         Boss boss = new Boss();
-        addObject(boss,1331,403);
+        addObject(boss,1331,450);
     }
 }
