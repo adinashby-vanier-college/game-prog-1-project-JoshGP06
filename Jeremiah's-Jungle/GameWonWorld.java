@@ -78,30 +78,10 @@ public class GameWonWorld extends World
         // You can add more objects or effects here, but for now, we'll leave it empty.
         VictoriousJeremiah victoriousJeremiah = new VictoriousJeremiah();
         addObject(victoriousJeremiah,1215,404);
-        victoriousJeremiah.setLocation(1173,216);
-        Crown crown = new Crown();
-        addObject(crown,1173,216);
-        victoriousJeremiah.setLocation(1179,344);
-        victoriousJeremiah.setLocation(1216,390);
-        victoriousJeremiah.setLocation(1222,407);
-        victoriousJeremiah.setLocation(1222,413);
-        victoriousJeremiah.setLocation(1190,217);
-        victoriousJeremiah.setLocation(1188,213);
-        victoriousJeremiah.setLocation(1186,211);
-        BossDefeated bossDefeated = new BossDefeated();
-        addObject(bossDefeated,221,389);
-        bossDefeated.setLocation(266,398);
-        bossDefeated.setLocation(248,382);
-        victoriousJeremiah.setLocation(1172,524);
-        victoriousJeremiah.setLocation(1206,410);
-        victoriousJeremiah.setLocation(1183,213);
-        victoriousJeremiah.setLocation(1186,212);
-        victoriousJeremiah.setLocation(1184,324);
-        victoriousJeremiah.setLocation(1206,421);
-        victoriousJeremiah.setLocation(1187,438);
-        victoriousJeremiah.setLocation(1198,324);
-        victoriousJeremiah.setLocation(1197,398);
-        victoriousJeremiah.setLocation(1199,388);
         victoriousJeremiah.setLocation(1204,410);
+        WinCrown winCrown = new WinCrown();
+        addObject(winCrown,1173,216);
+        BossDefeated bossDefeated = new BossDefeated();
+        addObject(bossDefeated,248,382);
     }
 }

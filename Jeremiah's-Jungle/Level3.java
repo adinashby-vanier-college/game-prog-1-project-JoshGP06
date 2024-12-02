@@ -8,12 +8,18 @@ import greenfoot.*;
 public class Level3 extends World
 {
     private GreenfootSound music;
+    private int coconutSpawnTimer = 0; // Timer to control coconut spawning
 
     public Level3()
     {
         super(1500, 800, 1);
         music =  new  GreenfootSound("level3.WAV");
         prepare();
+        act();
+    }
+    
+    public void act() {
+        spawnCoconuts(); // Handle coconut spawning
     }
 
     public void started()
@@ -23,6 +29,23 @@ public class Level3 extends World
     public void stopped()
     {
         music.stop();
+    }
+    
+    private void spawnCoconuts() {
+        // Increment the spawn timer
+        coconutSpawnTimer++;
+
+        // Spawn a coconut every 100 frames (adjust for frequency)
+        if (coconutSpawnTimer >= 30) {
+            // Reset the timer
+            coconutSpawnTimer = 0;
+
+            // Generate a random x position at the top of the screen
+            int randomX = Greenfoot.getRandomNumber(getWidth());
+
+            // Add a new coconut at the random position
+            addObject(new Coconut(), randomX, 0);
+        }
     }
 
     private void prepare()
