@@ -34,7 +34,7 @@ public class Coconut extends Actor {
         if (player != null) {
             World world = getWorld();
             world.removeObject(player);
-            Greenfoot.playSound("fire.mp3"); 
+            Greenfoot.playSound("coconut.mp3"); 
         }
     }
     

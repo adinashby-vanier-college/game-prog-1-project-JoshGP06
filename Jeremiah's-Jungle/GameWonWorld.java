@@ -6,6 +6,7 @@ import greenfoot.*;  // Import the Greenfoot classes
 public class GameWonWorld extends World
 {
     private int confettiTimer = 0;
+    private GreenfootSound music;
     private int maxConfetti = 25;  // Max number of confetti pieces on screen at once
     private int currentConfettiCount = 0;
     private GreenfootSound confettiSound;  // Sound to play when confetti spawns
@@ -16,6 +17,9 @@ public class GameWonWorld extends World
     {
         // Set the background size and color
         super(1500, 800, 1);
+        
+        music = new GreenfootSound("FinalWin.wav");
+        music.playLoop(); 
 
         // Set the background image
         GreenfootImage background = new GreenfootImage("winScreen.png");
