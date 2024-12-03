@@ -9,9 +9,6 @@ public class Transition2 extends World
 {
     private int counter = 0;
 
-    /**
-     * Constructor for objects of class Transition2.
-     */
     public Transition2()
     {
         super(1500, 800, 1);
@@ -28,7 +25,7 @@ public class Transition2 extends World
     public void transitionToLevel3()
     {
         World level3 = new Level3();
-        Greenfoot.setWorld(level3);  // Set the next world to Level3
+        Greenfoot.setWorld(level3);  
         level3.started();
     }
 }

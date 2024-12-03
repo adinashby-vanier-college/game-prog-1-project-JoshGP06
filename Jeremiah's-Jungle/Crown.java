@@ -7,9 +7,9 @@ import greenfoot.*;
  */
 public class Crown extends Actor
 {
-    private int gravity = 1;       // Gravity to pull the player down
-    private int verticalSpeed = -10; // Vertical speed for jumping and gravity
-    private boolean onGround = true; // Check if the player is on the ground
+    private int gravity = 1;      
+    private int verticalSpeed = -10; 
+    private boolean onGround = true; 
     
     /**
      * Act - do whatever the Crown wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.
@@ -36,47 +36,46 @@ public class Crown extends Actor
     
     private void applyGravity()
     {
-        if (!onGround)  // If the player is not on the ground, apply gravity
+        if (!onGround)  
         {
             verticalSpeed += gravity;
         }
-        setLocation(getX(), getY() + verticalSpeed);  // Update the vertical position based on speed
+        setLocation(getX(), getY() + verticalSpeed);  
     }
     
     private boolean isBigBlockBlocked(int newX, int newY)
     {
         Actor bigBlock = getOneObjectAtOffset(newX - getX(), newY - getY()-15, BigBlock.class);
-        return bigBlock != null;  // If there is a block, return true
+        return bigBlock != null;  
     }
     private boolean isRLongBlockBlocked(int newX, int newY)
     {
         Actor rLongBlock = getOneObjectAtOffset(newX - getX() + 75/2, newY - getY(), RLongBlock.class);
-        return rLongBlock != null;  // If there is a block, return true
+        return rLongBlock != null;  
     }
     
     private void checkCollisions()
     {
-        if (isBigBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LBlock directly below
+        if (isBigBlockBlocked(getX(), getY() + 75 / 2))   
         {
-            // Adjust player's vertical position so they land on top of the block
             while (isBigBlockBlocked(getX(), getY() + 75 / 2)) {
-                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+                setLocation(getX(), getY() - 1);  
             }
-            onGround = true;  // The player is on the ground
-            verticalSpeed = 0;  // Stop downward movement (gravity)
+            onGround = true;  
+            verticalSpeed = 0;  
         }
-        else if (isRLongBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LLongBlock directly below
+        else if (isRLongBlockBlocked(getX(), getY() + 75 / 2))
         {
-            // Adjust player's vertical position so they land on top of the block
+            
             while (isRLongBlockBlocked(getX(), getY() + 75 / 2)) {
-                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+                setLocation(getX(), getY() - 1);  
             }
-            onGround = true;  // The player is on the ground
-            verticalSpeed = 0;  // Stop downward movement (gravity)
+            onGround = true;  
+            verticalSpeed = 0;  
         }
         else
         {
-            onGround = false;  // Player is in the air
+            onGround = false;  
         }
     }
 }

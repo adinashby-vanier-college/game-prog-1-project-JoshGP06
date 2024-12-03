@@ -1,22 +1,18 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 public class Coconut extends Actor {
-    private double verticalSpeed = 0; // Current vertical speed of the coconut
-    private double gravity = 0.3; // Gravity constant to accelerate the fall
+    private double verticalSpeed = 0; 
+    private double gravity = 0.3; 
 
     public Coconut() {
-        // Set the image for the coconut
         setImage("coconut.png");
     }
 
     public void act() {
-        // Apply gravity to the vertical speed
         verticalSpeed += gravity;
 
-        // Update the position of the coconut based on its speed
         setLocation(getX(), (int) (getY() + verticalSpeed));
 
-        // Remove the coconut if it reaches the bottom of the screen
         if (getY() >= getWorld().getHeight()) {
             getWorld().removeObject(this);
         }

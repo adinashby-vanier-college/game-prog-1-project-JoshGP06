@@ -9,27 +9,25 @@ public class Player extends Actor
     
     
     private int speed = 6;         // Horizontal movement speed
-    private int jumpSpeed = -15;   // Jumping speed (negative to move upwards)
+    private int jumpSpeed = -15;   // Jumping speed 
     private int gravity = 1;       // Gravity to pull the player down
     private int verticalSpeed = -10; // Vertical speed for jumping and gravity
     private boolean onGround = true; // Check if the player is on the ground
     
     public void act()
     {
-        moveLeftRight();      // Handle horizontal movement
-        applyGravity();       // Apply gravity (fall if in the air)
-        jump();               // Handle jumping
-        checkCollisions();    // Check for collisions (ground, ceiling, etc.)
+        moveLeftRight();      
+        applyGravity();      
+        jump();               
+        checkCollisions();    
         take();
-        // Handle dash cooldown
         if (dashCooldown > 0) {
-            dashCooldown--;  // Decrease the cooldown
+            dashCooldown--;  
         }
         
-        // Trigger dash when pressing "shift"
         if (Greenfoot.isKeyDown("shift") && dashCooldown == 0) {
             dash();
-            dashCooldown = DASH_COOLDOWN_TIME;  // Reset cooldown after dash
+            dashCooldown = DASH_COOLDOWN_TIME; 
         }
         if (isGameWon1()) {
             transitionToTransition1();
@@ -45,59 +43,51 @@ public class Player extends Actor
         }
     }
     
-    // Check if the player has won in Level 1
     public boolean isGameWon1()
     {
         World world = getWorld();
-        // The player wins if the Crown is collected (empty Crown objects list)
         return world.getObjects(Crown.class).isEmpty();
     }
     
-    // Transition to Transition1 (level 1)
     public void transitionToTransition1()
     {
         World level1 = getWorld();
         if (level1 instanceof Level1) {
             level1.stopped();
             World transition1 = new Transition1();
-            Greenfoot.setWorld(transition1);  // Set the next world to Transition1
+            Greenfoot.setWorld(transition1);  
         }
     }
     
-    // Check if the player has won in Level 2
     public boolean isGameWon2()
     {
         World level2 = getWorld();
-        // The player wins if the Crown is collected (empty Crown objects list)
         return level2.getObjects(Crown.class).isEmpty();
     }
     
-    // Transition to Transition2 (level 2)
     public void transitionToTransition2()
     {
         World level2 = getWorld();
         if (level2 instanceof Level2) {
             level2.stopped(); 
             World transition2 = new Transition2();
-            Greenfoot.setWorld(transition2);  // Set the next world to Transition2
+            Greenfoot.setWorld(transition2);  
         }
     }
     
     public boolean isGameWon3()
     {
         World level3 = getWorld();
-        // The player wins if the Crown is collected (empty Crown objects list)
         return level3.getObjects(Crown.class).isEmpty();
     }
     
-    // Transition to Transition2 (level 2)
     public void transitionToGameWonWorld()
     {
         World level3 = getWorld();
         if (level3 instanceof Level3) {
             level3.stopped(); 
             World gameWonWorld = new GameWonWorld();
-            Greenfoot.setWorld(gameWonWorld);  // Set the next world to Transition2
+            Greenfoot.setWorld(gameWonWorld); 
         }
     }
     
@@ -110,7 +100,6 @@ public class Player extends Actor
         }
     }
     
-    // Handle left-right movement
     private void moveLeftRight()
     {
         if (Greenfoot.isKeyDown("a"))
@@ -123,56 +112,51 @@ public class Player extends Actor
         }
     }
 
-    // Check if the player can move left without colliding with a block
     private void moveLeft()
     {
         int newX = getX() - speed;
-        if (!isLBlockBlocked(newX, getY()))  // Check if the new position is blocked
+        if (!isLBlockBlocked(newX, getY()))  
         {
-            setLocation(newX, getY());  // Move left if no collision
+            setLocation(newX, getY());  
         }
-        else if (!isLLongBlockBlocked(newX, getY()))  // Check if the new position is blocked
+        else if (!isLLongBlockBlocked(newX, getY()))  
         {
-            setLocation(newX, getY());  // Move left if no collision
+            setLocation(newX, getY());  
         }
     }
 
-    // Check if the player can move right without colliding with a block
     private void moveRight()
     {
         int newX = getX() + speed;
-        if (!isRBlockBlocked(newX, getY()))  // Check if the new position is blocked
+        if (!isRBlockBlocked(newX, getY()))  
         {
-            setLocation(newX, getY());  // Move right if no collision
+            setLocation(newX, getY());  
         }
-        else if (!isRLongBlockBlocked(newX, getY()))  // Check if the new position is blocked
+        else if (!isRLongBlockBlocked(newX, getY()))  
         {
-            setLocation(newX, getY());  // Move left if no collision
+            setLocation(newX, getY());  
         }
     }
 
-    // Apply gravity: if not on the ground, pull the player down
     private void applyGravity()
     {
-        if (!onGround)  // If the player is not on the ground, apply gravity
+        if (!onGround)  
         {
             verticalSpeed += gravity;
         }
-        setLocation(getX(), getY() + verticalSpeed);  // Update the vertical position based on speed
+        setLocation(getX(), getY() + verticalSpeed); 
     }
 
-    // Handle jumping: if on the ground, apply an upward speed
     private void jump()
     {
-        if (Greenfoot.isKeyDown("space") && onGround == true)  // Only jump if on the ground
+        if (Greenfoot.isKeyDown("space") && onGround == true)   
         {
-            verticalSpeed = jumpSpeed;  // Apply jump speed (move upwards)
-            onGround = false;  // Player is in the air after jumping
+            verticalSpeed = jumpSpeed;  
+            onGround = false;  
             Greenfoot.playSound("jump.wav"); 
         }
     }
     
-    // Dash ability
     private void dash() {
         if (!isDashing) {
             isDashing = true;
@@ -185,129 +169,118 @@ public class Player extends Actor
         }
     }
 
-    // Check if the player is colliding with any Block at a specific position
     private boolean isLBlockBlocked(int newX, int newY)
     {
         Actor lBlock = getOneObjectAtOffset(newX - getX() - 75/2, newY - getY(), LBlock.class);
-        return lBlock != null;  // If there is a block, return true
+        return lBlock != null;  
     }
     private boolean isRBlockBlocked(int newX, int newY)
     {
         Actor rBlock = getOneObjectAtOffset(newX - getX() + 75/2, newY - getY(), RBlock.class);
-        return rBlock != null;  // If there is a block, return true
+        return rBlock != null; 
     }
     private boolean isLLongBlockBlocked(int newX, int newY)
     {
         Actor lLongBlock = getOneObjectAtOffset(newX - getX() - 75/2, newY - getY(), LLongBlock.class);
-        return lLongBlock != null;  // If there is a block, return true
+        return lLongBlock != null;  
     }
     private boolean isRLongBlockBlocked(int newX, int newY)
     {
         Actor rLongBlock = getOneObjectAtOffset(newX - getX() + 75/2, newY - getY(), RLongBlock.class);
-        return rLongBlock != null;  // If there is a block, return true
+        return rLongBlock != null;  
     }
     private boolean isGroundBlocked(int newX, int newY)
     {
         Actor ground = getOneObjectAtOffset(newX - getX(), newY - getY()-15, Ground.class);
-        return ground != null;  // If there is a block, return true
+        return ground != null;  
     }
     private boolean isBigBlockBlocked(int newX, int newY)
     {
         Actor bigBlock = getOneObjectAtOffset(newX - getX(), newY - getY()-15, BigBlock.class);
-        return bigBlock != null;  // If there is a block, return true
+        return bigBlock != null;  
     }
         
-    // Check if the player is colliding with the ground or ceiling
     private void checkCollisions()
     {
-        boolean wasOnGround = onGround;  // Save the previous onGround state
+        boolean wasOnGround = onGround;  
     
-        // Check if the player is colliding with an Block below (for landing)
-        if (isLBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LBlock directly below
+        if (isLBlockBlocked(getX(), getY() + 75 / 2))  
         {
-            // Adjust player's vertical position so they land on top of the block
             while (isLBlockBlocked(getX(), getY() + 75 / 2)) {
-                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+                setLocation(getX(), getY() - 1); 
             }
-            onGround = true;  // The player is on the ground
-            verticalSpeed = 0;  // Stop downward movement (gravity)
+            onGround = true;  
+            verticalSpeed = 0; 
         }
-        else if (isLLongBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LLongBlock directly below
+        else if (isLLongBlockBlocked(getX(), getY() + 75 / 2)) 
         {
-            // Adjust player's vertical position so they land on top of the block
             while (isLLongBlockBlocked(getX(), getY() + 75 / 2)) {
-                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+                setLocation(getX(), getY() - 1);  
             }
-            onGround = true;  // The player is on the ground
-            verticalSpeed = 0;  // Stop downward movement (gravity)
+            onGround = true;  
+            verticalSpeed = 0;  
         }
-        else if (isGroundBlocked(getX(), getY() + 75 / 2))  // Check if there's an LLongBlock directly below
+        else if (isGroundBlocked(getX(), getY() + 75 / 2))  
         {
-            // Adjust player's vertical position so they land on top of the block
             while (isGroundBlocked(getX(), getY() + 75 / 2)) {
-                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+                setLocation(getX(), getY() - 1);  
             }
-            onGround = true;  // The player is on the ground
-            verticalSpeed = 0;  // Stop downward movement (gravity)
+            onGround = true;  
+            verticalSpeed = 0;  
         }
-        else if (isRBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LBlock directly below
+        else if (isRBlockBlocked(getX(), getY() + 75 / 2))  
         {
-            // Adjust player's vertical position so they land on top of the block
             while (isRBlockBlocked(getX(), getY() + 75 / 2)) {
-                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+                setLocation(getX(), getY() - 1);  
             }
-            onGround = true;  // The player is on the ground
-            verticalSpeed = 0;  // Stop downward movement (gravity)
+            onGround = true;  
+            verticalSpeed = 0; 
         }
-        else if (isRLongBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LLongBlock directly below
+        else if (isRLongBlockBlocked(getX(), getY() + 75 / 2))  
         {
-            // Adjust player's vertical position so they land on top of the block
             while (isRLongBlockBlocked(getX(), getY() + 75 / 2)) {
-                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+                setLocation(getX(), getY() - 1);  
             }
-            onGround = true;  // The player is on the ground
-            verticalSpeed = 0;  // Stop downward movement (gravity)
+            onGround = true;  
+            verticalSpeed = 0;  
         }
-        else if (isBigBlockBlocked(getX(), getY() + 75 / 2))  // Check if there's an LBlock directly below
+        else if (isBigBlockBlocked(getX(), getY() + 75 / 2))  
         {
-            // Adjust player's vertical position so they land on top of the block
             while (isBigBlockBlocked(getX(), getY() + 75 / 2)) {
-                setLocation(getX(), getY() - 1);  // Move up by 1 pixel to find the top of the block
+                setLocation(getX(), getY() - 1);  
             }
-            onGround = true;  // The player is on the ground
-            verticalSpeed = 0;  // Stop downward movement (gravity)
+            onGround = true;  
+            verticalSpeed = 0;  
         }
         else
         {
-            onGround = false;  // Player is in the air
+            onGround = false;  
         }
         
     
-        // Check if the player is colliding with a ceiling (if jumping)
-        if (isLBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LBlock directly above
+        if (isLBlockBlocked(getX(), getY() - 75 / 2))  
         {
-            verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+            verticalSpeed = 0;  
         }
-        else if (isLLongBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LLongBlock directly above
+        else if (isLLongBlockBlocked(getX(), getY() - 75 / 2))  
         {
-            verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+            verticalSpeed = 0;  
         }
-        else if (isGroundBlocked(getX(), getY() - 75 / 2))  // Check if there's an LBlock directly above
+        else if (isGroundBlocked(getX(), getY() - 75 / 2))  
         {
-            verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+            verticalSpeed = 0;  
         }
-        else if (isRBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LBlock directly above
+        else if (isRBlockBlocked(getX(), getY() - 75 / 2))  
         {
-            verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+            verticalSpeed = 0;  
         }
-        else if (isRLongBlockBlocked(getX(), getY() - 75 / 2))  // Check if there's an LLongBlock directly above
+        else if (isRLongBlockBlocked(getX(), getY() - 75 / 2))  
         {
-            verticalSpeed = 0;  // Stop upward movement if hitting the ceiling
+            verticalSpeed = 0;  
         }
     
-        // If the player was on the ground and just left the ground, reset the vertical speed
         if (wasOnGround && !onGround) {
-            verticalSpeed = 0;  // Reset vertical speed when leaving the ground
+            verticalSpeed = 0;  
         }
     }
 }

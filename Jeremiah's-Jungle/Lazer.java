@@ -1,9 +1,9 @@
-import greenfoot.*;  // Import the Greenfoot library
+import greenfoot.*; 
 
 public class Lazer extends Actor
 {
-    private int timer = 0;  // Timer to track the time elapsed
-    private boolean visible = true;  // To track visibility of the laser
+    private int timer = 0;  
+    private boolean visible = true;  
     
     public void act() 
     {
@@ -12,19 +12,18 @@ public class Lazer extends Actor
             transitionToGameOver();
             Greenfoot.playSound("Missing Cap.wav"); 
         }
-        timer++;  // Increment the timer every act step
+        timer++;  
         timer();
     }
     
     public void timer()
     {
-        // Every 120 acts (which is equivalent to about 2 seconds if the world is running at 60fps)
         if (timer % 100 == 0) {
             if (visible) {
-                setImage("invisible.png");  // Change image to an invisible one (or you can remove it)
+                setImage("invisible.png");  
                 visible = false;
             } else {
-                setImage("lazer.png");  // Set image back to visible (make sure to have a laser image)
+                setImage("lazer.png");  
                 visible = true;
             }
         }
@@ -32,7 +31,7 @@ public class Lazer extends Actor
 
     public void removeObject()
     {
-        if (visible) {  // Only check for intersection when the laser is visible
+        if (visible) {  
             Actor player = getOneIntersectingObject(Player.class);
             if (player != null) {
                 World world = getWorld();
@@ -56,9 +55,7 @@ public class Lazer extends Actor
     public void transitionToGameOver()
     {
             World level2 = getWorld();
-            //level1.stopped();
             World gameLostWorld =  new GameLostWorld();
-            //gameOverWorld.started();
             Greenfoot.setWorld(gameLostWorld);
                  if(level2 instanceof Level2){
             level2.stopped(); 

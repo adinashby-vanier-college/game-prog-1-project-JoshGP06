@@ -16,7 +16,7 @@ public class Level1 extends World
         super(1500, 800, 1);
         music = new GreenfootSound("level1.mp3");
         prepare();
-        started();  // Play the background music in a loop
+        started();  
         stopped();
     }
     

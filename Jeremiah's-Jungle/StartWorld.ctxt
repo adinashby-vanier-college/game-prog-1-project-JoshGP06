@@ -12,5 +12,4 @@ comment5.params=
 comment5.target=void\ transitionToLevel1()
 comment6.params=
 comment6.target=void\ prepare()
-comment6.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\r\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\r\n
 numComments=7

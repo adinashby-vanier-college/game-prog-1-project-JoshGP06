@@ -1,4 +1,4 @@
-import greenfoot.*;  // Import the Greenfoot classes
+import greenfoot.*; 
 
 /**
  * Winning screen for the game.
@@ -7,67 +7,55 @@ public class GameWonWorld extends World
 {
     private int confettiTimer = 0;
     private GreenfootSound music;
-    private int maxConfetti = 25;  // Max number of confetti pieces on screen at once
+    private int maxConfetti = 25;  
     private int currentConfettiCount = 0;
-    private GreenfootSound confettiSound;  // Sound to play when confetti spawns
+    private GreenfootSound confettiSound;  
     /**
      * Constructor for objects of class GameWonWorld.
      */
     public GameWonWorld()
     {
-        // Set the background size and color
         super(1500, 800, 1);
         
         music = new GreenfootSound("FinalWin.wav");
         music.playLoop(); 
 
-        // Set the background image
         GreenfootImage background = new GreenfootImage("winScreen.png");
         
-        // Scale the image to match the world size (1500 x 800 in this case)
         background.scale(getWidth(), getHeight());
         
-        // Set the scaled image as the background
         setBackground(background);
         
         confettiSound = new GreenfootSound("confettiPop.mp3");
 
-        // Create and display "YOU WIN!" text
         GreenfootImage youWinText = new GreenfootImage("YOU WIN!", 128, Color.YELLOW, new Color(0, 0, 0, 0));
         int width = youWinText.getWidth();
         int height = youWinText.getHeight();
         getBackground().drawImage(youWinText, getWidth() / 2 - width / 2, getHeight() / 2 - height / 2);
         addConfetti();
 
-        // Create and display the subtitle "CONGRATULATIONS!" text
         GreenfootImage congratulationsText = new GreenfootImage("CONGRATULATIONS!", 48, Color.GREEN, new Color(0, 0, 0, 0));
         getBackground().drawImage(congratulationsText, getWidth() / 2 - congratulationsText.getWidth() / 2, getHeight() / 2 + 100);
         
 
-        // Prepare additional elements if necessary
         prepare();
     }
         public void act()
     {
-        // Continuously add confetti during the game won screen
         addConfetti();
     }
      private void addConfetti()
     {
-        // Spawn confetti at random intervals, but ensure the total number of confetti on screen doesn't exceed the limit
-        if (confettiTimer % 30 == 0 && currentConfettiCount < maxConfetti) {  // Every 20 frames and limit max confetti
-            int x = Greenfoot.getRandomNumber(getWidth()); // Random X position
-            int y = 0;  // Spawn at the top of the screen
+        if (confettiTimer % 30 == 0 && currentConfettiCount < maxConfetti) {  
+            int x = Greenfoot.getRandomNumber(getWidth()); 
+            int y = 0;  
             Confetti confetti = new Confetti();
             addObject(confetti, x, y);
-            currentConfettiCount++;  // Increase the current confetti count
+            currentConfettiCount++; 
             confettiSound.play(); 
         }
-
-        // Reset the timer and limit spawning after a certain amount of confetti
         confettiTimer++;
 
-        // If confetti have been removed, adjust the current count
         if (currentConfettiCount > maxConfetti) {
             currentConfettiCount = maxConfetti;
         }
@@ -79,7 +67,6 @@ public class GameWonWorld extends World
      */
     private void prepare() 
     {
-        // You can add more objects or effects here, but for now, we'll leave it empty.
         VictoriousJeremiah victoriousJeremiah = new VictoriousJeremiah();
         addObject(victoriousJeremiah,1215,404);
         victoriousJeremiah.setLocation(1204,410);
